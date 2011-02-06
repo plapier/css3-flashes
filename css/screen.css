@@ -12,12 +12,13 @@ div.clear {
 }
 
 body {
-	background: rgb(180, 185, 190);
-	color: 80, 80, 80;
-	font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
-	font-size: 11px;
+  background: rgb(180, 185, 190);
+  color: #333;
+  font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
+  font-size: 11px;
 }
 div#flash-wrapper {
+  height: 50px;
   margin: 0 auto;
   width: 960px;
 }
