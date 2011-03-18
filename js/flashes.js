@@ -1,3 +1,7 @@
+//---------------------------------------------------
+// Javascript for Demo Page only. See application.js.
+//---------------------------------------------------
+
 var slideDown = function(pos){
   $('.flash_message').animate({ marginTop: 0 });
 };

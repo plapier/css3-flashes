@@ -1,0 +1,196 @@
+/************************************************************************
+ Created by Phil LaPier
+ Latest Code: https://github.com/plapier/sexy-css3-flashes
+ Required Sass to compile (http://sass-lang.com/)
+************************************************************************/
+
+// Sass Mixins
+
+@mixin box-shadow ($x: 5px, $y: 5px, $blur: 5px, $spread: 5px, $color: #ccc) {
+	-webkit-box-shadow: $x $y $blur $spread $color;
+	-moz-box-shadow: $x $y $blur $spread $color;
+	box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin box-shadow-inset ($x: 5px, $y: 5px, $blur: 5px, $spread: 0px, $color: #ccc) {
+	-webkit-box-shadow: inset $x $y $blur $spread $color;
+	-moz-box-shadow: inset $x $y $blur $spread $color;
+	box-shadow: inset $x $y $blur $spread $color;
+}
+@mixin box-sizing ($box) {
+  box-sizing: $box;
+  -moz-box-sizing: $box;
+  -webkit-box-sizing: $box;
+}
+
+@mixin gradient($first, $second) {
+  background: $second;
+  background: -webkit-gradient(linear, left top, left bottom, from($first), to($second));
+  background: -moz-linear-gradient(top, $first, $second);
+}
+
+@mixin inline-block {
+  *display: inline;
+  *vertical-align: auto;
+  zoom: 1;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin rounded-corners($radius: 1em) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin rounded-corners-bottom($radius: 1em) {
+  -moz-border-radius-bottomright: $radius;
+  -moz-border-radius-bottomleft: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin text-shadow($color: #333, $x: 1px, $y: 1px, $blur: 1px) {
+  text-shadow: $color $x $y $blur;
+}
+
+@mixin transition($ratio: 0.15s) {
+  -webkit-transition: all $ratio ease-out;
+  -moz-transition: all $ratio ease-out;
+  -ms-transition: all $ratio ease-out;
+  -o-transition: all $ratio ease-out;
+  transition: all $ratio ease-out;
+}
+
+// Color Variables
+$gray-dark: #353535;
+$gray-light: #727272;
+
+$green: #009900;
+$red: #FF0000;
+$yellow: #F3BC00;
+
+/************************************************************************
+  Flash Message Styling
+************************************************************************/
+
+div#flash {
+  font-size: 15px;
+  max-height: 50px;
+  position: absolute;
+  top: 0px;
+  width: 960px;
+  z-index: 100;
+
+  div.flash_message {
+    border: 1px solid $gray-dark;
+    border-top: 0;
+    @include box-shadow-inset($gray-light, 0px, -1px, 0px, 0px);
+    @include box-sizing(border-box);
+    @include gradient(#595959, #3C3C3C);
+    height: 50px;
+    margin: -50px 0 0;
+    overflow: hidden;
+    padding: 12px 15px;
+    @include rounded-corners-bottom(8px);
+
+    p {
+      color: #FFF;
+      font-size: 15px;
+      font-weight: bold;
+      @include inline-block;
+      margin: 2px 0px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      @include text-shadow(#161616, 1px, 1px, 1px);
+    }
+    div#flash_close {
+      background: #434343;
+      border: 1px solid $gray-dark;
+      cursor: pointer;
+      float: right;
+      height: 20px;
+      @include inline-block;
+      @include rounded-corners(20px);
+      text-align: center;
+      @include transition;
+      vertical-align: top;
+      width: 20px;
+
+      span.close {
+        color: #CCC;
+        display: block;
+        /*font-stack should degrade somewhat gracefully for X button*/
+        font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 1em;
+        text-align: center;
+      }
+      &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+    }
+  }
+  div#flash_icon {
+    background: #303030;
+    bottom: 4px;
+  	-webkit-box-shadow: inset #000 0px 1px 0px 0px, $gray-light 0px 1px 0px 0px;
+  	-moz-box-shadow: inset #000 0px 1px 0px 0px, $gray-light 0px 1px 0px 0px;
+  	box-shadow: inset #000 0px 1px 0px 0px, $gray-light 0px 1px 0px 0px;
+    height: 30px;
+    @include inline-block;
+    margin-right: 12px;
+    position: relative;
+    @include rounded-corners(30px);
+    vertical-align: top;
+    width: 30px;
+
+    div#icon_status{
+      height: 20px;
+      margin: 5px auto 0;
+      @include rounded-corners(20px);
+      width: 20px;
+
+      &.icon_success {
+        background: $green;
+      }
+      &.icon_failure {
+        background: $red;
+      }
+      &.icon_notice {
+        background: $yellow;
+        div#gloss {
+          @include gradient(hsla(0%, 0%, 100%, 1),hsla(0%, 0%, 100%, 0));
+        }
+      }
+      div#gloss {
+        background: transparent;
+        @include gradient(hsla(0%, 0%, 100%, 0.7),hsla(0%, 0%, 100%, 0));
+        height: 16px;
+        margin: 0 auto;
+        position: relative;
+        @include rounded-corners(16px);
+        top: 1px;
+        width: 16px;
+      }
+    }
+  }
+  div#flash-vrule {
+    background: $gray-dark;
+    border-left: 1px solid $gray-light;
+    bottom: 12px;
+    @include inline-block;
+    height: 48px;
+    margin-right: 12px;
+    position: relative;
+    vertical-align: top;
+    width: 1px;
+  }
+}

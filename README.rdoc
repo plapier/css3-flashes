@@ -1,6 +1,8 @@
 = Sexy CSS3 Flashes
 These CSS3 flashes were created on the grounds of providing better functionality and visual appeal. They look best in WebKit-based browsers, almost as good in Firefox, with all other browsers degrading rather gracefully. If you use these flashes in the wild, drop me a note and let me know.
 
-Slide-down animation is being served by jQuery.
+*Slide-down animation is being served by jQuery (required).*
+
+*I recommend using Sass with these flashes. (http://sass-lang.com)*
 
 === View flash messages: http://plapier.github.com/sexy-css3-flashes
