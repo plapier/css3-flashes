@@ -1,25 +1,27 @@
 /************************************************************************
-  Created by Phil LaPier
-  Latest Code: https://github.com/plapier/sexy-css3-flashes
+  Sexy CSS3 Flashes v1.2.0
+  Copyright 2010, Phil LaPier
+  https://github.com/plapier/sexy-css3-flashes
+
   Requires Sass to compile (http://sass-lang.com/)
 ************************************************************************/
 /* Legacy support for inline-block in IE7 (maybe IE6) */
-/* Flash Message Styling
+/* Flash Message Styling for DARK CHROME Flashes
 ************************************************************************/
 div#flash {
   font-size: 15px;
   max-height: 50px;
   position: absolute;
-  top: 0px;
+  top: 0;
   width: 960px;
   z-index: 100; }
   div#flash div.flash_message {
     border: 1px solid #353535;
     border-top: 0;
-    -moz-box-shadow: inset 0px -1px 0px 0px #727272;
-    -webkit-box-shadow: inset 0px -1px 0px 0px #727272;
-    -o-box-shadow: inset 0px -1px 0px 0px #727272;
-    box-shadow: inset 0px -1px 0px 0px #727272;
+    -moz-box-shadow: inset 0 -1px 0 0 #727272, 0 0 3px 0 black;
+    -webkit-box-shadow: inset 0 -1px 0 0 #727272, 0 0 3px 0 black;
+    -o-box-shadow: inset 0 -1px 0 0 #727272, 0 0 3px 0 black;
+    box-shadow: inset 0 -1px 0 0 #727272, 0 0 3px 0 black;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -49,6 +51,7 @@ div#flash {
       *display: inline;
       *vertical-align: auto;
       margin: 2px 0px;
+      line-height: 120%;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-shadow: #161616 1px 1px 1px; }
     div#flash div.flash_message div#flash_close {

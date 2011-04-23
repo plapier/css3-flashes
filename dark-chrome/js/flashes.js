@@ -6,7 +6,7 @@ var slideDown = function(pos){
   $('.flash_message').animate({ marginTop: 0 });
 };
 var slideUp = function(btnID){
-  $('.flash_message').animate({ marginTop: -50 }, function(){ changeIcon(btnID) });
+  $('.flash_message').animate({ marginTop: -53 }, function(){ changeIcon(btnID) });
 };
 
 var changeIcon = function(btnID){

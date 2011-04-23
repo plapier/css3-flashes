@@ -1,86 +1,17 @@
 /************************************************************************
-  Created by Phil LaPier
-  Latest Code: https://github.com/plapier/sexy-css3-flashes
+  Sexy CSS3 Flashes v1.2.0
+  Copyright 2010, Phil LaPier
+  https://github.com/plapier/sexy-css3-flashes
+
   Requires Sass to compile (http://sass-lang.com/)
 ************************************************************************/
 
-@mixin border-radius ($radii) {
-  -moz-border-radius: $radii;
-  -webkit-border-radius: $radii;
-  border-radius: $radii;
-}
-
-// this hack is courtesy of gbbowers on github Ñ https://gist.github.com/601810
-@mixin box-shadow ($shadow-1, $shadow-2: false, $shadow-3: false, $shadow-4: false, $shadow-5: false, $shadow-6: false, $shadow-7: false, $shadow-8: false, $shadow-9: false) {
-  $full: $shadow-1;
-
-  @if $shadow-2 {
-    $full: $full + ", " + $shadow-2;
-  }
-  @if $shadow-3 {
-    $full: $full + ", " + $shadow-3;
-  }
-  @if $shadow-4 {
-    $full: $full + ", " + $shadow-4;
-  }
-  @if $shadow-5 {
-    $full: $full + ", " + $shadow-5;
-  }
-  @if $shadow-6 {
-    $full: $full + ", " + $shadow-6;
-  }
-  @if $shadow-7 {
-    $full: $full + ", " + $shadow-7;
-  }
-  @if $shadow-8 {
-    $full: $full + ", " + $shadow-8;
-  }
-  @if $shadow-9 {
-    $full: $full + ", " + $shadow-9;
-  }
-
-  -moz-box-shadow: $full;
-  -webkit-box-shadow: $full;
-  -o-box-shadow: $full;
-  box-shadow: $full;
-}
-
-@mixin box-sizing ($box) {
-  -webkit-box-sizing: $box;
-  -moz-box-sizing: $box;
-  box-sizing: $box;
-}
-
-@mixin linear-gradient ($from, $to) {
-  background: $from;
-  background: -moz-linear-gradient(top, $from, $to);    // FF3.6
-  background: -ms-linear-gradient(top, $from, $to);     // IE10
-  background: -o-linear-gradient(top, $from, $to);      // Opera 11.10+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to)); // Saf4+, Chrome
-  background: -webkit-linear-gradient(top, $from, $to); // Chrome 10+, Saf5.1+
-  background: linear-gradient(top, $from, $to);
-}
-
-/* Legacy support for inline-block in IE7 (maybe IE6) */
-@mixin inline-block {
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  *display: inline;
-  *vertical-align: auto;
-}
-
-@mixin transition($ratio: 0.15s) {
-  -webkit-transition: all $ratio ease-out;
-  -moz-transition: all $ratio ease-out;
-  -ms-transition: all $ratio ease-out;
-  -o-transition: all $ratio ease-out;
-  transition: all $ratio ease-out;
-}
+@import "mixins";
 
 // Color Variables
+$chrome-from: #595959;
+$chrome-to: #3C3C3C;
+
 $gray-dark: #353535;
 $gray-light: #727272;
 
@@ -90,23 +21,23 @@ $yellow: #F3BC00;
 
 
 //************************************************************************
-/* Flash Message Styling
+/* Flash Message Styling for DARK CHROME Flashes
 ************************************************************************/
 
 div#flash {
   font-size: 15px;
   max-height: 50px;
   position: absolute;
-  top: 0px;
+  top: 0;
   width: 960px;
   z-index: 100;
 
   div.flash_message {
     border: 1px solid $gray-dark;
     border-top: 0;
-    @include box-shadow( inset 0px -1px 0px 0px $gray-light );
+    @include box-shadow( inset 0 -1px 0 0 $gray-light, 0 0 3px 0 rgba(#000, 1.0) );
     @include box-sizing(border-box);
-    @include linear-gradient(#595959, #3C3C3C);
+    @include linear-gradient($chrome-from, $chrome-to);
     height: 50px;
     margin: -50px 0 0;
     overflow: hidden;
@@ -119,6 +50,7 @@ div#flash {
       font-weight: bold;
       @include inline-block;
       margin: 2px 0px;
+      line-height: 120%;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-shadow: #161616 1px 1px 1px;
     }
