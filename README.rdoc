@@ -5,4 +5,5 @@ These CSS3 flashes were created on the grounds of providing better functionality
 
 *I recommend using Sass with these flashes. (http://sass-lang.com)*
 
-=== View flash messages: http://plapier.github.com/sexy-css3-flashes
+=== Dark Chrome Flashes: http://plapier.github.com/sexy-css3-flashes/dark-chrome/
+=== Light Chrome Flashes: http://plapier.github.com/sexy-css3-flashes/light-chrome/
