@@ -1,0 +1,151 @@
+/************************************************************************
+  Sexy CSS3 Flashes v1.2.0
+  Copyright 2010, Phil LaPier
+  https://github.com/plapier/sexy-css3-flashes
+
+  Requires Sass to compile (http://sass-lang.com/)
+************************************************************************/
+
+@import "mixins";
+
+// Color Variables
+$chrome-from: #f5f5f5;
+$chrome-to: #959595;
+
+$text-color: #222;
+$text-shadow: hsla(100%, 100%, 100%, 0.8);
+
+$gray-dark: #999;
+$gray-light: #aaa;
+
+$green: #009900;
+$red: darken(#FF0000, 6%);
+$yellow: #F3BC00;
+$icon-bg: #CCC;
+
+$close-btn: hsla(0%, 0%, 0%, 0.1);
+
+
+//************************************************************************
+/* Flash Message Styling for LIGHT CHROME Flashes
+************************************************************************/
+
+div#flash {
+  font-size: 15px;
+  max-height: 50px;
+  position: absolute;
+  top: 0;
+  width: 960px;
+  z-index: 100;
+
+  div.flash_message {
+    border: 0;
+    @include box-shadow( inset 0 -1px 0 0 lighten($gray-light, 4%), 0 0 5px 1px #000);
+    @include box-sizing(border-box);
+    @include linear-gradient($chrome-from, $chrome-to);
+    height: 50px;
+    margin: -50px 0 0;
+    overflow: hidden;
+    padding: 12px 15px;
+    @include border-radius(0 0 8px 8px);
+
+    p {
+      color: $text-color;
+      font-size: 15px;
+      font-weight: bold;
+      @include inline-block;
+      line-height: 120%;
+      margin: 2px 0px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-shadow: $text-shadow 1px 1px 1px;
+    }
+    div#flash_close {
+      background: #b6b6b6;
+      background: $close-btn;
+      border: 1px solid darken($gray-dark, 5%);
+      @include box-shadow( 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65) );
+      cursor: pointer;
+      float: right;
+      height: 20px;
+      @include inline-block;
+      @include border-radius(20px);
+      text-align: center;
+      @include transition;
+      vertical-align: top;
+      width: 20px;
+
+      span.close {
+        color: lighten($text-color, 30%);
+        display: block;
+        /* font-stack should degrade somewhat gracefully for X button (close button) */
+        font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 1em;
+        text-align: center;
+      }
+      &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: sscale(1.2);
+        transform: scale(1.2);
+      }
+    }
+  }
+  div#flash_icon {
+    background: $icon-bg;
+    bottom: 4px;
+    @include border-radius(30px);
+    @include box-shadow( inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
+    @include linear-gradient(#adadad, #7e7e7e);
+    height: 30px;
+    @include inline-block;
+    margin-right: 12px;
+    position: relative;
+    vertical-align: top;
+    width: 30px;
+
+    div#icon_status{
+      @include border-radius(20px);
+      @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
+      height: 20px;
+      margin: 5px auto 0;
+      width: 20px;
+
+      &.icon_success {
+        background: $green;
+      }
+      &.icon_failure {
+        background: $red;
+      }
+      &.icon_notice {
+        background: $yellow;
+
+        div#gloss {
+          @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
+        }
+      }
+      div#gloss {
+        background: transparent;
+        @include border-radius(16px);
+        height: 16px;
+        @include linear-gradient(hsla(0%, 0%, 100%, 0.7), hsla(0%, 0%, 100%, 0));
+        margin: 0 auto;
+        position: relative;
+        top: 1px;
+        width: 16px;
+      }
+    }
+  }
+  div#flash-vrule {
+    background: hsla(100%, 100%, 100%, 0.65);
+    border-left: 1px solid $gray-dark;
+    bottom: 12px;
+    @include inline-block;
+    height: 49px;
+    margin-right: 12px;
+    position: relative;
+    vertical-align: top;
+    width: 1px;
+  }
+}
