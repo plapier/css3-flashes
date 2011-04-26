@@ -24,7 +24,7 @@ body {
   line-height: 150%;
 }
 div#flash-wrapper {
-  height: 50px;
+  min-height: 50px;
   margin: 0 auto;
   width: 960px;
 }
