@@ -15,7 +15,10 @@
 //************************************************************************//
 
 $flashHeight: 50px;    // Change Flash Message Height (if need to)
-$fontSize: 16px;       // Font Size (15px - 16px is recommended)
+$fontSize: 15px;       // Font Size (15px - 16px is recommended)
+
+$chrome-from: #5782b3;
+$chrome-to: #184473;
 
 //************************************************************************//
 // STOP EDITING HERE
@@ -40,11 +43,15 @@ $vPadding: ((($flashHeight - $fontSize) / 2) - 4); // Calculate the padding of t
 ************************************************************************/
 
 // Color Variables for Dark Chrome
-$chrome-from: #595959;
-$chrome-to: #3C3C3C;
 
 $gray-dark: #353535;
 $gray-light: #727272;
+
+$text-color: hsla(100%, 100%, 100%, 1.0);
+$text-shadow: hsla(0%, 0%, 0%, 0.8);
+
+$shadow: darken($chrome-to, 8%);
+$highlight: lighten($chrome-to, 20%);
 
 $green: #009900;
 $red: #FF0000;
@@ -59,9 +66,9 @@ div#flash {
   z-index: 100;
 
   div.flash_message {
-    border: 1px solid $gray-dark;
+    border: 1px solid $shadow;
     border-top: 0;
-    @include box-shadow( inset 0 -1px 0 0 $gray-light, 0 0 3px 0 rgba(#000, 1.0) );
+    @include box-shadow( inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000);
     @include box-sizing(border-box);
     @include linear-gradient($chrome-from, $chrome-to);
     height: $flashHeight;
@@ -71,8 +78,8 @@ div#flash {
     @include border-radius(0 0 8px 8px);
 
     div#flash-vrule {
-      background: $gray-dark;
-      border-left: 1px solid $gray-light;
+      background: $shadow;
+      border-left: 1px solid $highlight;
       bottom: $vPadding + 2;
       @include inline-block;
       height: $flashHeight;
@@ -83,23 +90,23 @@ div#flash {
     }
 
     p {
-      color: #FFF;
+      color: $text-color;
       font-size: $fontSize;
       font-weight: bold;
       @include inline-block;
       margin: 2px 0px;
       line-height: $fontSize;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      text-shadow: #161616 1px 1px 1px;
+      text-shadow: $text-shadow 1px 1px 1px;
     }
 
     div#flash_icon {
-      background: #303030;
-      bottom: 4px;
       @include border-radius(30px);
-      @include box-shadow(inset 0 1px 0 0 #000, $gray-light 0 1px 0 0);
+      bottom: 4px;
+      @include box-shadow(inset 0 1px 0 0 hsla(0%, 0%, 0%, 0.9), $highlight 0 1px 0 0);
       height: 30px;
       @include inline-block;
+      @include linear-gradient(hsla(0%, 0%, 0%, 0.22), hsla(0%, 0%, 0%, 0.28));
       margin-right: 12px;
       position: relative;
       vertical-align: top;
@@ -140,7 +147,7 @@ div#flash {
     div#flash_close {
       background: #434343;
       background: hsla(0%, 0%, 0%, 0.2);
-      border: 1px solid $gray-dark;
+      border: 1px solid $shadow;
       cursor: pointer;
       float: right;
       height: 20px;
@@ -152,7 +159,7 @@ div#flash {
       width: 20px;
 
       span.close {
-        color: #CCC;
+        color: hsla(100%, 100%, 100%, 0.75);
         display: block;
         /* font-stack should degrade somewhat gracefully for X button (close button) */
         font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
