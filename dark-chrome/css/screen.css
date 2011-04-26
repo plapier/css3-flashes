@@ -1,6 +1,6 @@
 /************************************************************************
   Created by Phil LaPier
-  Stylesheet for Dark Chrome demo page only. See flashes.css / flashes.scss.
+  Stylesheet for Dark Chrome DEMO PAGE only. See flashes.css / flashes.scss.
 ************************************************************************/
 * {
 	margin: 0;
@@ -23,7 +23,7 @@ body {
   line-height: 150%;
 }
 div#flash-wrapper {
-  height: 50px;
+  min-height: 50px;
   margin: 0 auto;
   width: 960px;
 }
