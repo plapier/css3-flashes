@@ -7,8 +7,6 @@
   Requires Sass to compile (http://sass-lang.com/)
 ************************************************************************/
 /* Legacy support for inline-block in IE7 (maybe IE6) */
-/* Flash Message Styling for DARK CHROME Flashes
-************************************************************************/
 /* Flash Message Styling for LIGHT CHROME Flashes
 ************************************************************************/
 div#flash {
@@ -145,7 +143,7 @@ div#flash {
           width: 16px; }
     div#flash div.flash_message div#flash_close {
       background: rgba(0, 0, 0, 0.1);
-      border: 1px solid #6f6f6f;
+      border: 1px solid rgba(0, 0, 0, 0.2);
       cursor: pointer;
       float: right;
       height: 20px;
@@ -168,7 +166,7 @@ div#flash {
       vertical-align: top;
       width: 20px; }
       div#flash div.flash_message div#flash_close span.close {
-        color: #6f6f6f;
+        color: rgba(0, 0, 0, 0.4);
         display: block;
         /* font-stack should degrade somewhat gracefully for X button (close button) */
         font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;

@@ -6,8 +6,8 @@
 
   Requires Sass to compile (http://sass-lang.com/)
 ************************************************************************/
-
 @import "mixins";
+
 
 
 
@@ -15,10 +15,10 @@
 //************************************************************************//
 
 $flashHeight: 50px;    // Change Flash Message Height (if need to)
-$fontSize: 15px;       // Font Size (15px - 16px is recommended)
+$fontSize: 15px;       // Font Size (15px - 16px recommended)
 
-$chrome-from: #f5f5f5;
-$chrome-to: #959595;
+$chrome-from: #f5f5f5; $chrome-to: #959595; //Gray Chrome
+//$chrome-from: #e1f6ff; $chrome-to: #96b6ce; //Blue Chrome Test
 
 //************************************************************************//
 // STOP EDITING HERE
@@ -26,24 +26,12 @@ $chrome-to: #959595;
 
 
 
-
-// CALCULATE THE HEIGHT AND ADJUST ACCORDINGLY Ñ DO NOT EDIT
+// DO NOT EDIT - CALCULATE THE HEIGHT AND ADJUST ACCORDINGLY
 //************************************************************************//
 
 $vPadding: ((($flashHeight - $fontSize) / 2) - 4); // Calculate the padding of the flashes
 
-//************************************************************************//
-// END
-
-
-
-
-//************************************************************************//
-/* Flash Message Styling for DARK CHROME Flashes
-************************************************************************/
-
-// Calculate colors based on
-
+// Color Variables for LIGHT CHROME
 $text-color: hsla(0, 0%, 13%, 1.0);
 $text-shadow: hsla(100%, 100%, 100%, 0.8);
 
@@ -53,6 +41,11 @@ $highlight: lighten($chrome-to, 15%);
 $green: #009900;
 $red: darken(#FF0000, 6%);
 $yellow: #F3BC00;
+
+//************************************************************************//
+// END
+
+
 
 
 //************************************************************************
@@ -147,7 +140,7 @@ div#flash {
     }
     div#flash_close {
       background: hsla(0%, 0%, 0%, 0.1);
-      border: 1px solid $shadow;
+      border: 1px solid hsla(0%, 0%, 0%, 0.2);
       cursor: pointer;
       float: right;
       height: 20px;
@@ -159,7 +152,7 @@ div#flash {
       width: 20px;
 
       span.close {
-        color: $shadow;
+        color: hsla(0%, 0%, 0%, 0.4);
         display: block;
         /* font-stack should degrade somewhat gracefully for X button (close button) */
         font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
