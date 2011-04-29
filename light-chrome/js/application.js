@@ -2,15 +2,17 @@
 // This Javascript is required for Flashes to animate in your app.
 //----------------------------------------------------------------
 
+// Flash messages
 $(function(){
+  var flashHeight = $('.flash_message').css("height");     // Grab height of Flash Message
+  var negHeight = "-" + flashHeight;                       // Negate height
 
-    $('.flash_message')
-    // Slide down flashes then Slide up after delay of 4 seconds
-    .animate({ marginTop: 0 }).delay(4000).animate({ marginTop: -53 });
+  // On Document load, slide down flashes then slide up after delay of 3 seconds
+  $('.flash_message').animate({ marginTop: 0 }).delay(3000).animate({ marginTop: negHeight });
 
-    // Dismiss flash when close-button is clicked
-    $('#flash_close').click(function(){
-      $('.flash_message').animate({ marginTop: -53 })
-    });
-
+  // Dissmiss Flash Messages
+  $('#flash_close').click(function(){
+    $('.flash_message').stop();                            //Stop Animation
+    $('.flash_message').animate({ marginTop: negHeight }); // Slide up
+  });
 });
