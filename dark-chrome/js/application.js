@@ -5,11 +5,10 @@
 $(function(){
 
     $('.flash_message')
-      .animate({ marginTop: 0 }); // Slide flash message down
+    // Slide down flashes then Slide up after delay of 4 seconds
+    .animate({ marginTop: 0 }).delay(4000).animate({ marginTop: -53 });
 
-  // Alternatively, Slide down then Slide up after delay of 4 seconds
-  //  .animate({ marginTop: 0 }).delay(4000).animate({ marginTop: -53 });
-
+    // Dismiss flash when close-button is clicked
     $('#flash_close').click(function(){
       $('.flash_message').animate({ marginTop: -53 })
     });

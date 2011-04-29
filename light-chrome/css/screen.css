@@ -23,11 +23,6 @@ body {
   font-size: 11px;
   line-height: 150%;
 }
-div#flash-wrapper {
-  min-height: 50px;
-  margin: 0 auto;
-  width: 960px;
-}
 div#wrap {
 	margin: 180px auto;
 	width: 300px;

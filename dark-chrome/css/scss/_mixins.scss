@@ -1,9 +1,8 @@
 //MIXINS FOR DARK CHROME
 
-
 @mixin border-radius ($radii) {
-  -moz-border-radius: $radii;
   -webkit-border-radius: $radii;
+  -moz-border-radius: $radii;
   border-radius: $radii;
 }
 
@@ -37,8 +36,8 @@
     $full: $full, $shadow-9;
   }
 
-  -moz-box-shadow: $full;
   -webkit-box-shadow: $full;
+  -moz-box-shadow: $full;
   -o-box-shadow: $full;
   box-shadow: $full;
 }
@@ -51,11 +50,11 @@
 
 @mixin linear-gradient ($from, $to) {
   background: $from;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to)); // Saf4+, Chrome
+  background: -webkit-linear-gradient(top, $from, $to); // Chrome 10+, Saf5.1+
   background: -moz-linear-gradient(top, $from, $to);    // FF3.6
   background: -ms-linear-gradient(top, $from, $to);     // IE10
   background: -o-linear-gradient(top, $from, $to);      // Opera 11.10+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to)); // Saf4+, Chrome
-  background: -webkit-linear-gradient(top, $from, $to); // Chrome 10+, Saf5.1+
   background: linear-gradient(top, $from, $to);
 }
 
