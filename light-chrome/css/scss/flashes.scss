@@ -59,7 +59,7 @@ div#flash_wrapper {
 
   div#flash {
     font-size: 15px;
-    max-height: 50px;
+    max-height: $flashHeight;
     position: absolute;
     top: 0;
     width: $flashWidth;
