@@ -10,7 +10,6 @@
 /* Flash Message Styling for LIGHT CHROME Flashes
 ************************************************************************/
 div#flash_wrapper {
-  min-height: 50px;
   margin: 0 auto;
   width: 960px; }
   div#flash_wrapper div#flash {

@@ -15,7 +15,8 @@
 //************************************************************************//
 
 $flashHeight: 50px;    // Change Flash Message Height (if need to)
-$flashWidth: 960px;
+$flashWidth: 960px;    // Change Flash Message Width
+
 $fontSize: 15px;       // Font Size (15px - 16px recommended)
 
 $chrome-from: #595959; $chrome-to: #3C3C3C; //Black Chrome
@@ -53,7 +54,6 @@ $yellow: #F3BC00;
 /* Flash Message Styling for DARK CHROME Flashes
 ************************************************************************/
 div#flash_wrapper {
-  min-height: $flashHeight;
   margin: 0 auto;
   width: $flashWidth;
 
