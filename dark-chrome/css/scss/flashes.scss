@@ -31,7 +31,7 @@ $chrome-from: #595959; $chrome-to: #3C3C3C; //Black Chrome
 // DO NOT EDIT - CALCULATE THE HEIGHT AND ADJUST ACCORDINGLY
 //************************************************************************//
 
-$vPadding: ((($flashHeight - $fontSize) / 2) - 4); // Calculate the padding of the flashes
+$vPadding: ceil( ((($flashHeight - $fontSize) / 2) - 5) ); // Calculate the padding of the flashes
 
 // Color Variables for DARK CHROME
 $text-color: hsla(100%, 100%, 100%, 1.0);

@@ -39,14 +39,14 @@ div#flash_wrapper {
       height: 50px;
       margin: -50px 0 0;
       overflow: hidden;
-      padding: 13.5px 15px;
+      padding: 13px 15px;
       -webkit-border-radius: 0 0 8px 8px;
       -moz-border-radius: 0 0 8px 8px;
       border-radius: 0 0 8px 8px; }
       div#flash_wrapper div#flash div.flash_message div#flash-vrule {
         background: rgba(255, 255, 255, 0.4);
         border-left: 1px solid #959595;
-        bottom: 15.5px;
+        bottom: 15px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
         display: inline-block;
