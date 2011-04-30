@@ -5,8 +5,8 @@
 var slideDown = function(pos){
   $('.flash_message').animate({ marginTop: 0 });
 };
-var slideUp = function(btnID){
-  $('.flash_message').animate({ marginTop: -55 }, function(){ changeIcon(btnID) });
+var slideUp = function(closePos, btnID){
+  $('.flash_message').animate({ marginTop: closePos }, function(){ changeIcon(btnID) });
 };
 
 var changeIcon = function(btnID){
@@ -31,16 +31,22 @@ var changeIcon = function(btnID){
 $(function(){
   // Slide down on page load
   slideDown();
+  var flashHeight = $('div#flash').css("max-height");             // Grab height of Flash Message
+  var boxShadowOffset = 4;                                        // Define CSS Box-Shadow Height (pixels)
+  
+  // Calculate closed position of flash message
+  // Negate height, parse to integer, add CSS shadow height
+  var closePos = "-" + (parseInt(flashHeight) + boxShadowOffset) + "px";
 
   // On button click, slide up - change icon and text - slide down
   $('li button').click(function(){
     var btnID = $(this).attr("id");
-      slideUp(btnID);
+      slideUp(closePos, btnID); // pass in flash message height & button ID
       slideDown(btnID);
   });
 
   // Slide up when close button is clicked
   $('#flash_close').click(function(){
-    slideUp();
+    slideUp(closePos);
   });
 });

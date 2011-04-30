@@ -14,7 +14,7 @@
 // EDIT HERE
 //************************************************************************//
 
-$flashHeight: 50px;    // Change Flash Message Height
+$flashHeight: 55px;    // Change Flash Message Height
 $flashWidth: 960px;    // Change Flash Message Width
 
 $fontSize: 15px;       // Font Size (15px - 16px recommended)
@@ -68,7 +68,7 @@ div#flash_wrapper {
     div.flash_message {
       border: 1px solid $highlight;
       border-top: 0;
-      @include box-shadow( inset 0 -1px 0 0 $shadow, 0 0 5px 1px #000);
+      @include box-shadow( inset 0 -1px 0 0 $shadow, 0 0 5px 1px #000); // if you adjust the box-shadow height, adjust boxShadowHeight in jQuery as well.
       @include box-sizing(border-box);
       @include linear-gradient($chrome-from, $chrome-to);
       height: $flashHeight;

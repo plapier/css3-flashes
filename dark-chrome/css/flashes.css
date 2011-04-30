@@ -14,7 +14,7 @@ div#flash_wrapper {
   width: 960px; }
   div#flash_wrapper div#flash {
     font-size: 15px;
-    max-height: 50px;
+    max-height: 55px;
     margin: 0 auto;
     position: absolute;
     top: 0;
@@ -37,17 +37,17 @@ div#flash_wrapper {
       background: -ms-linear-gradient(top, #595959, #3c3c3c);
       background: -o-linear-gradient(top, #595959, #3c3c3c);
       background: linear-gradient(top, #595959, #3c3c3c);
-      height: 50px;
-      margin: -50px 0 0;
+      height: 55px;
+      margin: -55px 0 0;
       overflow: hidden;
-      padding: 13px 15px;
+      padding: 15px 15px;
       -webkit-border-radius: 0 0 8px 8px;
       -moz-border-radius: 0 0 8px 8px;
       border-radius: 0 0 8px 8px; }
       div#flash_wrapper div#flash div.flash_message div#flash-vrule {
         background: #282828;
         border-left: 1px solid #6f6f6f;
-        bottom: 15px;
+        bottom: 17px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
         display: inline-block;
@@ -55,7 +55,7 @@ div#flash_wrapper {
         zoom: 1;
         *display: inline;
         *vertical-align: auto;
-        height: 50px;
+        height: 55px;
         margin-right: 12px;
         position: relative;
         vertical-align: top;
