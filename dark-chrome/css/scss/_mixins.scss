@@ -76,3 +76,10 @@
   -o-transition: all $ratio ease-out;
   transition: all $ratio ease-out;
 }
+
+@mixin transform($property){
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}

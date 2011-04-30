@@ -21,6 +21,9 @@ div#flash_wrapper {
     z-index: 100; }
     div#flash_wrapper div#flash div.flash_message {
       border: 1px solid #bbbbbb;
+      -webkit-border-radius: 0 0 8px 8px;
+      -moz-border-radius: 0 0 8px 8px;
+      border-radius: 0 0 8px 8px;
       border-top: 0;
       -webkit-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 5px 1px black;
       -moz-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 5px 1px black;
@@ -29,6 +32,7 @@ div#flash_wrapper {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
+      height: 55px;
       background: #f5f5f5;
       background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f5f5f5), color-stop(1, #959595));
       background: -webkit-linear-gradient(top, #f5f5f5, #959595);
@@ -36,17 +40,14 @@ div#flash_wrapper {
       background: -ms-linear-gradient(top, #f5f5f5, #959595);
       background: -o-linear-gradient(top, #f5f5f5, #959595);
       background: linear-gradient(top, #f5f5f5, #959595);
-      height: 55px;
       margin: -55px 0 0;
       overflow: hidden;
-      padding: 15px 15px;
-      -webkit-border-radius: 0 0 8px 8px;
-      -moz-border-radius: 0 0 8px 8px;
-      border-radius: 0 0 8px 8px; }
+      padding: 15px 15px; }
       div#flash_wrapper div#flash div.flash_message div#flash-vrule {
         background: rgba(255, 255, 255, 0.4);
         border-left: 1px solid #959595;
         bottom: 17px;
+        height: 55px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
         display: inline-block;
@@ -54,15 +55,16 @@ div#flash_wrapper {
         zoom: 1;
         *display: inline;
         *vertical-align: auto;
-        height: 55px;
         margin-right: 12px;
         position: relative;
         vertical-align: top;
         width: 1px; }
       div#flash_wrapper div#flash div.flash_message p {
         color: #212121;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 15px;
         font-weight: bold;
+        line-height: 15px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
         display: inline-block;
@@ -70,9 +72,7 @@ div#flash_wrapper {
         zoom: 1;
         *display: inline;
         *vertical-align: auto;
-        line-height: 15px;
         margin: 2px 0px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
       div#flash_wrapper div#flash div.flash_message div#flash_icon {
         -webkit-border-radius: 30px;

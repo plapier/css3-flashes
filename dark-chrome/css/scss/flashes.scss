@@ -68,15 +68,15 @@ div#flash_wrapper {
 
     div.flash_message {
       border: 1px solid $shadow;
+      @include border-radius(0 0 8px 8px);
       border-top: 0;
-      @include box-shadow( inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000);
+      @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // if adjusted, you may need to adjust jQuery boxShadowOffset in application.js
       @include box-sizing(border-box);
-      @include linear-gradient($chrome-from, $chrome-to);
       height: $flashHeight;
+      @include linear-gradient($chrome-from, $chrome-to);
       margin: -$flashHeight 0 0; //Negative margin
       overflow: hidden;
       padding: $vPadding 15px;
-      @include border-radius(0 0 8px 8px);
 
       div#flash-vrule {
         background: $shadow;
@@ -91,12 +91,12 @@ div#flash_wrapper {
       }
       p {
         color: $text-color;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: $fontSize;
         font-weight: bold;
         @include inline-block;
-        margin: 2px 0px;
         line-height: $fontSize;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 2px 0px;
         text-shadow: $text-shadow 1px 1px 1px;
       }
       div#flash_icon {
@@ -167,10 +167,7 @@ div#flash_wrapper {
           text-align: center;
         }
         &:hover {
-          -webkit-transform: scale(1.2);
-          -moz-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-          transform: scale(1.2);
+          @include transform(scale(1.2));
         }
       }
       //hover over flash message to see close button. JS will slide flashes up regardless.
