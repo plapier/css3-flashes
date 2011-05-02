@@ -1,10 +1,10 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.6
+  Sexy CSS3 Flashes v1.2.7
   DARK CHROME
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
-  Requires Sass to compile (http://sass-lang.com/)
+  Requires Sass v3.1.1+ to compile (http://sass-lang.com/)
 ************************************************************************/
 @import "mixins";
 
@@ -31,7 +31,7 @@ $chrome-from: #595959; $chrome-to: #3C3C3C; //Black Chrome
 // DO NOT EDIT - CALCULATE THE HEIGHT AND ADJUST ACCORDINGLY
 //************************************************************************//
 
-$vPadding: ceil( ((($flashHeight - $fontSize) / 2) - 5) ); // Calculate the padding of the flashes
+$vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the padding of the flashes.
 
 // Color Variables for DARK CHROME
 $text-color: hsla(100%, 100%, 100%, 1.0);

@@ -1,10 +1,10 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.6
+  Sexy CSS3 Flashes v1.2.7
   LIGHT CHROME
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
-  Requires Sass to compile (http://sass-lang.com/)
+  Requires Sass v3.1.1+ to compile (http://sass-lang.com/)
 ************************************************************************/
 /* Legacy support for inline-block in IE7 (maybe IE6) */
 /* Flash Message Styling for LIGHT CHROME Flashes
@@ -42,11 +42,11 @@ div#flash_wrapper {
       background: linear-gradient(top, #f5f5f5, #959595);
       margin: -55px 0 0;
       overflow: hidden;
-      padding: 15px 15px; }
+      padding: 16px 15px; }
       div#flash_wrapper div#flash div.flash_message div#flash-vrule {
         background: rgba(255, 255, 255, 0.4);
         border-left: 1px solid #959595;
-        bottom: 17px;
+        bottom: 18px;
         height: 55px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;

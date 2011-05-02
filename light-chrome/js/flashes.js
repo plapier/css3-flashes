@@ -33,7 +33,7 @@ $(function(){
   slideDown();
   var flashHeight = $('div#flash').css("max-height");             // Grab height of Flash Message
   var boxShadowOffset = 4;                                        // Define CSS Box-Shadow Height (pixels)
-  
+
   // Calculate closed position of flash message
   // Negate height, parse to integer, add CSS shadow height
   var closePos = "-" + (parseInt(flashHeight) + boxShadowOffset) + "px";

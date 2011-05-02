@@ -15,7 +15,7 @@ $(function(){
 
   // Grab height of Flash Message
   var flashHeight = $('.flash_message').css("height");
-  
+
   // Calculate closed position of flash message
   // Negate height, parse to integer, add CSS shadow height
   var closePos = "-" + (parseInt(flashHeight) + boxShadowOffset) + "px";
