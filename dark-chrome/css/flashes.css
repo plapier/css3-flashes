@@ -1,6 +1,5 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.7
-  DARK CHROME
+  Sexy CSS3 Flashes v1.2.8
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
@@ -15,7 +14,7 @@ div#flash_wrapper {
   div#flash_wrapper div#flash {
     font-size: 15px;
     margin: 0 auto;
-    max-height: 55px;
+    max-height: 50px;
     position: absolute;
     top: 0;
     width: 960px;
@@ -34,7 +33,7 @@ div#flash_wrapper {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      height: 55px;
+      height: 50px;
       background: #595959;
       background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #595959), color-stop(1, #3c3c3c));
       background: -webkit-linear-gradient(top, #595959, #3c3c3c);
@@ -42,14 +41,14 @@ div#flash_wrapper {
       background: -ms-linear-gradient(top, #595959, #3c3c3c);
       background: -o-linear-gradient(top, #595959, #3c3c3c);
       background: linear-gradient(top, #595959, #3c3c3c);
-      margin: -55px 0 0;
+      margin: -50px 0 0;
       overflow: hidden;
-      padding: 16px 15px; }
+      padding: 13px 15px; }
       div#flash_wrapper div#flash div.flash_message div#flash-vrule {
         background: #282828;
         border-left: 1px solid #6f6f6f;
-        bottom: 18px;
-        height: 55px;
+        bottom: 15px;
+        height: 50px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
         display: inline-block;
@@ -108,6 +107,10 @@ div#flash_wrapper {
           -webkit-border-radius: 20px;
           -moz-border-radius: 20px;
           border-radius: 20px;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          -o-box-shadow: none;
+          box-shadow: none;
           height: 20px;
           margin: 5px auto 0;
           width: 20px; }
@@ -170,7 +173,7 @@ div#flash_wrapper {
         div#flash_wrapper div#flash div.flash_message div#flash_close span.close {
           color: rgba(255, 255, 255, 0.75);
           display: block;
-          /* font-stack should degrade somewhat gracefully for X button (close button) */
+          /* font-stack should degrade gracefully for X button */
           font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
           font-size: 17px;
           font-weight: bold;

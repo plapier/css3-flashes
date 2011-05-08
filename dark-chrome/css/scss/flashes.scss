@@ -1,6 +1,5 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.7
-  DARK CHROME
+  Sexy CSS3 Flashes v1.2.8
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
@@ -13,12 +12,11 @@
 
 // EDIT HERE
 //************************************************************************//
-$chromeLight: false;    // Set to true to enable LIGHT CHROME
+$chromeLight: false;    // Set to true to enable LIGHT CHROME theme
 
-$flashHeight: 55px;    // Set Flash Message Height
+$flashHeight: 50px;    // Set Flash Message Height
 $flashWidth: 960px;    // Set Flash Message Width
 $fontSize: 15px;       // Font Size (15px - 16px recommended)
-
 
   $chrome-from: #595959; $chrome-to: #3C3C3C; // DARK CHROME Gradient
 @if $chromeLight == true {
@@ -81,25 +79,33 @@ div#flash_wrapper {
     z-index: 100;
 
     div.flash_message {
-      border-color: $shadow;
+      @if $chromeLight == true {
+        border-color: $highlight;
+      } @else {
+        border-color: $shadow;
+      }
       border-style: none solid solid solid;
       border-width: 1px;
       @include border-radius(0 0 8px 8px);
-      @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // if adjusted, you may need to adjust jQuery boxShadowOffset in application.js
+      @if $chromeLight == true {
+        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
+      } @else {
+        @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
+      }
       @include box-sizing(border-box);
       height: $flashHeight;
       @include linear-gradient($chrome-from, $chrome-to);
-      margin: -$flashHeight 0 0; //Negative margin
+      margin: -$flashHeight 0 0;  // Negative margin
       overflow: hidden;
       padding: $vPadding 15px;
-      @if $chromeLight == true {
-        border-color: $highlight;
-        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 5px 1px #000); // if adjusted, you may need to adjust jQuery boxShadowOffset in application.js
-      }
 
       div#flash-vrule {
         background: $shadow;
         border-left: 1px solid $highlight;
+        @if $chromeLight == true {
+          background: hsla(100%, 100%, 100%, 0.4);
+          border-left: 1px solid $chrome-to;
+        }
         bottom: $vPadding + 2;
         height: $flashHeight;
         @include inline-block;
@@ -107,10 +113,6 @@ div#flash_wrapper {
         position: relative;
         vertical-align: top;
         width: 1px;
-        @if $chromeLight == true {
-          background: hsla(100%, 100%, 100%, 0.4);
-          border-left: 1px solid $chrome-to;
-        }
       }
       p {
         color: $text-color;
@@ -139,12 +141,14 @@ div#flash_wrapper {
 
         div#icon_status {
           @include border-radius(20px);
+          @if $chromeLight == true {
+            @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7)); 
+          } @else {
+            @include box-shadow(none);
+          }
           height: 20px;
           margin: 5px auto 0;
           width: 20px;
-          @if $chromeLight == true {
-            @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
-          }
 
           &.icon_success {
             background: $green;
@@ -172,7 +176,11 @@ div#flash_wrapper {
         }
       }
       div#flash_close {
-        background: hsla(0%, 0%, 0%, 0.2);
+        @if $chromeLight == true {
+          background: hsla(0%, 0%, 0%, 0.1);
+        } @else {
+          background: hsla(0%, 0%, 0%, 0.2);
+        }
         border: 1px solid hsla(0%, 0%, 0%, 0.2);
         @include border-radius(20px);
         cursor: pointer;
@@ -184,29 +192,26 @@ div#flash_wrapper {
         @include transition;
         vertical-align: top;
         width: 20px;
-        @if $chromeLight == true {
-          background: hsla(0%, 0%, 0%, 0.1);
-        }
 
         span.close {
-          color: hsla(100%, 100%, 100%, 0.75);
+          @if $chromeLight == true {
+            color: hsla(0%, 0%, 0%, 0.4);
+          } @else {
+            color: hsla(100%, 100%, 100%, 0.75);
+          }
           display: block;
-          /* font-stack should degrade somewhat gracefully for X button (close button) */
+          /* font-stack should degrade gracefully for X button */
           font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
           font-size: 17px;
           font-weight: bold;
           line-height: 1em;
           text-align: center;
-
-          @if $chromeLight == true {
-            color: hsla(0%, 0%, 0%, 0.4);
-          }
         }
         &:hover {
           @include transform(scale(1.2));
         }
       }
-      //hover over flash message to see close button. JS will slide flashes up regardless.
+      // hover over flash message to see close button. JS will slide flashes up regardless.
       &:hover > div#flash_close {
         opacity: 1.0;
       }
