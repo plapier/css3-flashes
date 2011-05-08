@@ -1,0 +1,202 @@
+/************************************************************************
+  Created by Phil LaPier
+  Stylesheet for DEMO PAGE only. See flashes.css / flashes.scss.
+************************************************************************/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 1em;
+	list-style: none;
+}
+
+div.clear {
+	clear: both;
+}
+div#wrap {
+	margin: 180px auto;
+	width: 300px;
+}
+div#buttons {
+  text-align: center;
+}
+ul {
+  margin-bottom: 30px;
+}
+ul li {
+  display: inline-block;
+  margin: 0px 15px 0px 0px;
+}
+
+/* Dark
+************************************************************************/
+
+body#dark {
+  background: rgb(180, 185, 190);
+  color: #333;
+  font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
+  font-size: 11px;
+  line-height: 150%;
+}
+body#dark h1 {
+  border-top: 3px solid #333;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  padding-top: 10px;
+  text-shadow: #CFCFCF 1px 1px 0;
+}
+body#dark p {
+  margin-bottom: 10px;
+  text-shadow: #CFCFCF 1px 1px 0;
+}
+body#dark a {
+  color: #333;
+  font-weight: bold;
+  margin-top: 5px;
+}
+body#dark a:hover {
+  text-shadow: #E3E3E3 1px 1px 0;
+}
+
+body#dark .button {
+	-webkit-box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.6),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(150, 150, 150),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.6),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(150, 150, 150),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.6),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(150, 150, 150),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.7);
+	background-image:
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(rgb(240, 240, 240)),
+			to(rgb(210, 210, 210))
+		);
+  background:
+    -moz-linear-gradient(
+      top,
+      rgb(240, 240, 240) 0%,
+      rgb(210, 210, 210) 100%
+    );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F0F0F0', endColorstr='#D2D2D2',GradientType=0 ); /* ie */
+	color: rgb(90, 90, 90);
+	cursor: pointer;
+	font: 11px/20px 'Lucida Grande', sans-serif;
+	padding: 0px 12px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+body#dark .button:active {
+	-webkit-box-shadow:
+		inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(140, 140, 140),
+		0 1px 1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:
+		inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(140, 140, 140),
+		0 1px 1px rgba(0, 0, 0, 0.3);
+	box-shadow:
+		inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(140, 140, 140),
+		0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Light
+************************************************************************/
+body#light {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ccc;
+  font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
+  font-size: 11px;
+  line-height: 150%;
+}
+body#light h1 {
+  border-top: 3px solid #888;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  padding-top: 10px;
+
+}
+body#light p {
+  margin-bottom: 10px;
+
+}
+body#light a {
+  color: #AAA;
+  font-weight: bold;
+  margin-top: 5px;
+}
+body#light a:hover {
+  color: #FFF;
+}
+body#light .button {
+	-webkit-box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.2),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgba(0, 0, 0, 0.15),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.2),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgba(0, 0, 0, 0.15),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.2),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgba(0, 0, 0, 0.15),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+	border-radius: 3px;
+	display: block;
+	background: #666;
+  background: -moz-linear-gradient( top, #666 0%, #3e3e3e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from( #666 ), to( #3e3e3e ));
+  background: -webkit-linear-gradient( #666, #3e3e3e );
+  background: linear-gradient(#666, #3e3e3e);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666', endColorstr='#3e3e3e',GradientType=0 ); /* ie */
+	color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+	font: 11px/20px 'Lucida Grande', sans-serif;
+	padding: 0 12px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
+}
+body#light .button:hover {
+	background: #727272;
+  background: -moz-linear-gradient( top, #727272 0%, #3e3e3e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from( #727272 ), to( #3e3e3e ));
+  background: -webkit-linear-gradient( #727272, #3e3e3e );
+  background: linear-gradient(#727272, #3e3e3e);
+}
+body#light .button:active {
+	-webkit-box-shadow:
+		inset 0 0 4px 1px rgba(255, 255, 255, 0.2),
+		0 0 0 1px rgba(0, 0, 0, 0.15),
+		0 1px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:
+		inset 0 0 4px 1px rgba(255, 255, 255, 0.2),
+		0 0 0 1px rgba(0, 0, 0, 0.15),
+		0 1px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:
+		inset 0 0 4px 1px rgba(255, 255, 255, 0.2),
+		0 0 0 1px rgba(0, 0, 0, 0.15),
+		0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
