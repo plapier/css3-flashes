@@ -1,6 +1,7 @@
 # Sexy CSS3 Flashes
 
 Use these CSS3 flashes in your rails app.
+DEMO: http://plapier.github.com/sexy-css3-flashes/index.html:
 
 ## Dependencies
 
@@ -25,4 +26,3 @@ Add the flashes partial to your layouts:
 
 These CSS3 flashes were created on the grounds of providing better functionality and visual appeal. They look best in WebKit-based browsers, almost as good in Firefox, with all other browsers degrading rather gracefully. If you use these flashes in the wild, drop me a note and let me know. http://twitter.com/phillapier
 
-DEMO: http://plapier.github.com/sexy-css3-flashes/index.html:
