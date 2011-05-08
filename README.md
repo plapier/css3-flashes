@@ -15,7 +15,7 @@ You'll need:
 Everything in flashes directory, place respectively in your rails app:
 
 * _flashes.html.erb partial into app/views/shared/
-* sass files into public/stylesheets/scss/
+* sass files into public/stylesheets/sass/
 * flashes.js into public/javascripts/ and include it in your javascripts tag.
 
 Add the flashes partial to your layouts:
