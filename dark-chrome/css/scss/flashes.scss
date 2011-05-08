@@ -12,14 +12,19 @@
 
 // EDIT HERE
 //************************************************************************//
-$chromeLight: false;    // Set to true to enable LIGHT CHROME theme
+$chromeColor: dark;    // dark or light !IMPORTANT
 
 $flashHeight: 50px;    // Set Flash Message Height
 $flashWidth: 960px;    // Set Flash Message Width
 $fontSize: 15px;       // Font Size (15px - 16px recommended)
 
+$dark:  ($chromeColor == dark);
+$light: ($chromeColor == light);
+$chrome-from: 0; $chrome-to: 0; // Set defaults
+
+@if $dark {
   $chrome-from: #595959; $chrome-to: #3C3C3C; // DARK CHROME Gradient
-@if $chromeLight == true {
+} @else if $light {
   $chrome-from: #f5f5f5; $chrome-to: #959595; // LIGHT CHROME Gradient
 }
 //************************************************************************//
@@ -32,7 +37,16 @@ $fontSize: 15px;       // Font Size (15px - 16px recommended)
 //************************************************************************//
 
 $vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the padding of the flashes.
+//Set Defaults vars
+$text-color:   0;
+$text-shadow:  0;
+$shadow:       0;
+$highlight:    0;
+$green:  #009900;
+$red:    #FF0000;
+$yellow: #F3BC00;
 
+@if $dark {
   // DARK CHROME color variables
   $text-color: hsla(100%, 100%, 100%, 1.0);
   $text-shadow: hsla(0%, 0%, 0%, 0.8);
@@ -40,11 +54,7 @@ $vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the pad
   $shadow: darken($chrome-to, 8%);
   $highlight: lighten($chrome-to, 20%);
 
-  $green: #009900;
-  $red: #FF0000;
-  $yellow: #F3BC00;
-
-@if $chromeLight == true {
+} @else if $light {
   // LIGHT CHROME color variables
   $text-color: hsla(0, 0%, 13%, 1.0);
   $text-shadow: hsla(100%, 100%, 100%, 0.8);
@@ -79,18 +89,18 @@ div#flash_wrapper {
     z-index: 100;
 
     div.flash_message {
-      @if $chromeLight == true {
-        border-color: $highlight;
-      } @else {
+      @if $dark {
         border-color: $shadow;
+      } @else if $light {
+        border-color: $highlight;
       }
       border-style: none solid solid solid;
       border-width: 1px;
       @include border-radius(0 0 8px 8px);
-      @if $chromeLight == true {
-        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
-      } @else {
+      @if $dark {
         @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
+      } @else if $light {
+        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
       }
       @include box-sizing(border-box);
       height: $flashHeight;
@@ -100,9 +110,10 @@ div#flash_wrapper {
       padding: $vPadding 15px;
 
       div#flash-vrule {
-        background: $shadow;
-        border-left: 1px solid $highlight;
-        @if $chromeLight == true {
+        @if $dark {
+          background: $shadow;
+          border-left: 1px solid $highlight;
+        } @else if $light {
           background: hsla(100%, 100%, 100%, 0.4);
           border-left: 1px solid $chrome-to;
         }
@@ -127,7 +138,11 @@ div#flash_wrapper {
       div#flash_icon {
         @include border-radius(30px);
         bottom: 4px;
-        @include box-shadow(inset 0 1px 0 0 hsla(0%, 0%, 0%, 0.9), $highlight 0 1px 0 0);
+        @if $dark {
+          @include box-shadow(inset 0 1px 0 0 hsla(0%, 0%, 0%, 0.9), $highlight 0 1px 0 0);
+        } @else if $light {
+          @include box-shadow(inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
+        }
         height: 30px;
         @include inline-block;
         @include linear-gradient(hsla(0%, 0%, 0%, 0.22), hsla(0%, 0%, 0%, 0.28));
@@ -135,51 +150,48 @@ div#flash_wrapper {
         position: relative;
         vertical-align: top;
         width: 30px;
-        @if $chromeLight == true {
-          @include box-shadow(inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
+      }
+
+      div#icon_status {
+        @include border-radius(20px);
+        @if $dark {
+          @include box-shadow(none);
+        } @else if $light {
+          @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7)); 
         }
+        height: 20px;
+        margin: 5px auto 0;
+        width: 20px;
 
-        div#icon_status {
-          @include border-radius(20px);
-          @if $chromeLight == true {
-            @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7)); 
-          } @else {
-            @include box-shadow(none);
-          }
-          height: 20px;
-          margin: 5px auto 0;
-          width: 20px;
+        &.icon_success {
+          background: $green;
+        }
+        &.icon_failure {
+          background: $red;
+        }
+        &.icon_notice, &.icon_alert {
+          background: $yellow;
 
-          &.icon_success {
-            background: $green;
-          }
-          &.icon_failure {
-            background: $red;
-          }
-          &.icon_notice, &.icon_alert {
-            background: $yellow;
-
-            div#gloss {
-              @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
-            }
-          }
           div#gloss {
-            background: transparent;
-            @include border-radius(16px);
-            height: 16px;
-            @include linear-gradient(hsla(0%, 0%, 100%, 0.7), hsla(0%, 0%, 100%, 0));
-            margin: 0 auto;
-            position: relative;
-            top: 1px;
-            width: 16px;
+            @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
           }
+        }
+        div#gloss {
+          background: transparent;
+          @include border-radius(16px);
+          height: 16px;
+          @include linear-gradient(hsla(0%, 0%, 100%, 0.7), hsla(0%, 0%, 100%, 0));
+          margin: 0 auto;
+          position: relative;
+          top: 1px;
+          width: 16px;
         }
       }
       div#flash_close {
-        @if $chromeLight == true {
-          background: hsla(0%, 0%, 0%, 0.1);
-        } @else {
+        @if $dark {
           background: hsla(0%, 0%, 0%, 0.2);
+        } @else if $light {
+          background: hsla(0%, 0%, 0%, 0.1);
         }
         border: 1px solid hsla(0%, 0%, 0%, 0.2);
         @include border-radius(20px);
@@ -194,10 +206,10 @@ div#flash_wrapper {
         width: 20px;
 
         span.close {
-          @if $chromeLight == true {
-            color: hsla(0%, 0%, 0%, 0.4);
-          } @else {
+          @if $dark {
             color: hsla(100%, 100%, 100%, 0.75);
+          } @else if $light {
+            color: hsla(0%, 0%, 0%, 0.4);
           }
           display: block;
           /* font-stack should degrade gracefully for X button */
