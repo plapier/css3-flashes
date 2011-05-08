@@ -1,5 +1,4 @@
 # Sexy CSS3 Flashes
-===================
 
 Use these CSS3 flashes in your rails app.
 
@@ -14,9 +13,9 @@ You'll need:
 
 Everything in flashes directory, place respectively in your rails app:
 
-    _flashes.html.erb partial into app/views/shared/
-    sass files into public/stylesheets/scss/
-    flashes.js into public/javascripts/ and include it in your javascripts tag.
+* _flashes.html.erb partial into app/views/shared/
+* sass files into public/stylesheets/scss/
+* flashes.js into public/javascripts/ and include it in your javascripts tag.
 
 Add the flashes partial to your layouts:
 
