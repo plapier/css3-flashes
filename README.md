@@ -22,6 +22,8 @@ Add the flashes partial to your layouts:
 
     <%= render :partial => 'shared/flashes' -%>
 
+## Toggle Light or Dark Chrome
+
 To toggle between light & dark color themes, edit _flashes.scss:
 
     $chromeColor: dark;  // Toggle 'dark' or 'light'
