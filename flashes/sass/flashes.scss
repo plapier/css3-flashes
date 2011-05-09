@@ -12,21 +12,19 @@
 
 // EDIT HERE
 //************************************************************************//
-$chromeColor: dark;    // dark or light !IMPORTANT
+$chromeColor:   dark;    // Toggle dark or light !IMPORTANT
+$flashHeight:   50px;    // Set Flash Message Height
+$flashWidth:   960px;    // Set Flash Message Width
+$fontSize:      15px;    // Font Size (15px - 16px recommended)
 
-$flashHeight: 50px;    // Set Flash Message Height
-$flashWidth: 960px;    // Set Flash Message Width
-$fontSize: 15px;       // Font Size (15px - 16px recommended)
+// Set Dark Chrome Gradient (top -to- bottom)
+$dark-from:  #595959;
+$dark-to:    #3C3C3C;
 
-$dark:  ($chromeColor == dark);
-$light: ($chromeColor == light);
-$chrome-from: 0; $chrome-to: 0; // Set defaults
+// Set Light Chrome Gradient (top -to- bottom)
+$light-from: #F5F5F5;
+$light-to:   #959595;
 
-@if $dark {
-  $chrome-from: #595959; $chrome-to: #3C3C3C; // DARK CHROME Gradient
-} @else if $light {
-  $chrome-from: #f5f5f5; $chrome-to: #959595; // LIGHT CHROME Gradient
-}
 //************************************************************************//
 // STOP EDITING HERE
 
@@ -37,7 +35,10 @@ $chrome-from: 0; $chrome-to: 0; // Set defaults
 //************************************************************************//
 
 $vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the padding of the flashes.
-//Set Defaults vars
+
+// Initialize Variables
+$chrome-from:  0;
+$chrome-to:    0;
 $text-color:   0;
 $text-shadow:  0;
 $shadow:       0;
@@ -45,26 +46,34 @@ $highlight:    0;
 $green:  #009900;
 $red:    #FF0000;
 $yellow: #F3BC00;
+$dark:  ($chromeColor == dark);
+$light: ($chromeColor == light);
+
+@if $dark {
+  // DARK CHROME Gradient
+  $chrome-from: $dark-from;
+  $chrome-to:   $dark-to;
+
+} @else if $light {
+  // LIGHT CHROME Gradient
+  $chrome-from: $light-from;
+  $chrome-to:   $light-to;
+}
 
 @if $dark {
   // DARK CHROME color variables
-  $text-color: hsla(100%, 100%, 100%, 1.0);
-  $text-shadow: hsla(0%, 0%, 0%, 0.8);
-
-  $shadow: darken($chrome-to, 8%);
-  $highlight: lighten($chrome-to, 20%);
+  $highlight:   lighten($chrome-to, 20%);
+  $shadow:      darken ($chrome-to,  8%);
+  $text-color:  hsla(100%, 100%, 100%, 1.0);
+  $text-shadow: hsla(  0%,   0%,   0%, 0.8);
 
 } @else if $light {
   // LIGHT CHROME color variables
-  $text-color: hsla(0, 0%, 13%, 1.0);
+  $highlight:   lighten($chrome-to, 15%);
+  $shadow:      darken( $chrome-to, 15%);
+  $text-color:  hsla(  0%,   0%,  13%, 1.0);
   $text-shadow: hsla(100%, 100%, 100%, 0.8);
-
-  $shadow: darken($chrome-to, 15%);
-  $highlight: lighten($chrome-to, 15%);
-
-  $green: #009900;
-  $red: darken(#FF0000, 6%);
-  $yellow: #F3BC00;
+  $red:         darken(#FF0000, 6%);
 }
 //************************************************************************//
 // END
@@ -76,7 +85,7 @@ $yellow: #F3BC00;
 /* Flash Message Styling for DARK CHROME or LIGHT CHROME Flashes
 ************************************************************************/
 div#flash_wrapper {
-  margin: 0 auto;
+  margin: 0 auto;  // Center flashes on screen
   width: $flashWidth;
 
   div#flash {
@@ -98,9 +107,9 @@ div#flash_wrapper {
       border-width: 1px;
       @include border-radius(0 0 8px 8px);
       @if $dark {
-        @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
+        @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // if adjusted, see jQuery boxShadowOffset in application.js
       } @else if $light {
-        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000); // see jQuery boxShadowOffset in application.js
+        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000);    // if adjusted, see jQuery boxShadowOffset in application.js
       }
       @include box-sizing(border-box);
       height: $flashHeight;
