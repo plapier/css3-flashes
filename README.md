@@ -22,6 +22,12 @@ Add the flashes partial to your layouts:
 
     <%= render :partial => 'shared/flashes' -%>
 
+To toggle between light & dark color themes, edit _flashes.scss:
+
+    $chromeColor: dark;  // Toggle 'dark' or 'light'
+
+The highlights and shadows differ between DARK and LIGHT Chrome, therefore if you change the gradient colors, try to use the appropriate Chrome theme.
+
 ## About
 
 These CSS3 flashes were created on the grounds of providing better functionality and visual appeal. They look best in WebKit-based browsers, almost as good in Firefox, with all other browsers degrading rather gracefully. If you use these flashes in the wild, drop me a note and let me know. http://twitter.com/phillapier
