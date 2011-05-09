@@ -39,10 +39,10 @@ $vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the pad
 // Initialize Variables
 $chrome-from:  0;
 $chrome-to:    0;
+$highlight:    0;
+$shadow:       0;
 $text-color:   0;
 $text-shadow:  0;
-$shadow:       0;
-$highlight:    0;
 $green:  #009900;
 $red:    #FF0000;
 $yellow: #F3BC00;
@@ -70,7 +70,7 @@ $light: ($chromeColor == light);
 } @else if $light {
   // LIGHT CHROME color variables
   $highlight:   lighten($chrome-to, 15%);
-  $shadow:      darken( $chrome-to, 15%);
+  $shadow:      darken ($chrome-to, 15%);
   $text-color:  hsla(  0%,   0%,  13%, 1.0);
   $text-shadow: hsla(100%, 100%, 100%, 0.8);
   $red:         darken(#FF0000, 6%);
