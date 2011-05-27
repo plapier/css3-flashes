@@ -166,7 +166,7 @@ div#flash_wrapper {
         @if $dark {
           @include box-shadow(none);
         } @else if $light {
-          @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7)); 
+          @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
         }
         height: 20px;
         margin: 5px auto 0;
@@ -237,5 +237,18 @@ div#flash_wrapper {
         opacity: 1.0;
       }
     }
+  }
+}
+/* iPad [portrait + landscape] */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  div#flash_close {
+    opacity: 1;
+  }
+}
+
+/* iPhone [portrait + landscape] */
+@media only screen and (max-device-width: 480px) {
+  div#flash_close {
+    opacity: 1;
   }
 }

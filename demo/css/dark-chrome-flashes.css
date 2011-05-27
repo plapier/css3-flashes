@@ -186,3 +186,12 @@ div#flash_wrapper {
           transform: scale(1.2); }
       div#flash_wrapper div#flash div.flash_message:hover > div#flash_close {
         opacity: 1.0; }
+
+/* iPad [portrait + landscape] */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  div#flash_close {
+    opacity: 1; } }
+/* iPhone [portrait + landscape] */
+@media only screen and (max-device-width: 480px) {
+  div#flash_close {
+    opacity: 1; } }
