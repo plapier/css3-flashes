@@ -18,14 +18,17 @@ div#flash_wrapper {
     position: absolute;
     top: 0;
     width: 960px;
-    z-index: 100; }
+    z-index: 100;
+    zoom: 1;
+    filter: alpha(opacity=90);
+    opacity: 0.9; }
     div#flash_wrapper div#flash div.flash_message {
       border-color: darken #3c3c3c, 8%;
       border-style: none solid solid solid;
       border-width: 1px;
-      -webkit-border-radius: 0 0 8px 8px;
-      -moz-border-radius: 0 0 8px 8px;
-      border-radius: 0 0 8px 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
       -webkit-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
       -moz-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
       -o-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
@@ -41,10 +44,14 @@ div#flash_wrapper {
       background: -ms-linear-gradient(top, #595959, #3c3c3c);
       background: -o-linear-gradient(top, #595959, #3c3c3c);
       background: linear-gradient(top, #595959, #3c3c3c);
-      margin: -50px 0 0;
+      margin: -50px 0 10px;
       overflow: hidden;
       padding: 13px 15px; }
-      div#flash_wrapper div#flash div.flash_message div#flash-vrule {
+      div#flash_wrapper div#flash div.flash_message:first-child {
+        -webkit-border-radius: 0 0 8px 8px;
+        -moz-border-radius: 0 0 8px 8px;
+        border-radius: 0 0 8px 8px; }
+      div#flash_wrapper div#flash div.flash_message div.flash-vrule {
         background: darken #3c3c3c, 8%;
         border-left: 1px solid #6f6f6f;
         bottom: 15px;
@@ -75,7 +82,7 @@ div#flash_wrapper {
         line-height: 15px;
         margin: 2px 0px;
         text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px; }
-      div#flash_wrapper div#flash div.flash_message div#flash_icon {
+      div#flash_wrapper div#flash div.flash_message div.flash_icon {
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
         border-radius: 30px;
@@ -103,7 +110,7 @@ div#flash_wrapper {
         position: relative;
         vertical-align: top;
         width: 30px; }
-      div#flash_wrapper div#flash div.flash_message div#icon_status {
+      div#flash_wrapper div#flash div.flash_message div.icon_status {
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
@@ -114,13 +121,13 @@ div#flash_wrapper {
         height: 20px;
         margin: 5px auto 0;
         width: 20px; }
-        div#flash_wrapper div#flash div.flash_message div#icon_status.icon_success {
+        div#flash_wrapper div#flash div.flash_message div.icon_status.icon_success {
           background: #009900; }
-        div#flash_wrapper div#flash div.flash_message div#icon_status.icon_failure {
+        div#flash_wrapper div#flash div.flash_message div.icon_status.icon_failure, div#flash_wrapper div#flash div.flash_message div.icon_status.icon_error {
           background: red; }
-        div#flash_wrapper div#flash div.flash_message div#icon_status.icon_notice, div#flash_wrapper div#flash div.flash_message div#icon_status.icon_alert {
+        div#flash_wrapper div#flash div.flash_message div.icon_status.icon_notice, div#flash_wrapper div#flash div.flash_message div.icon_status.icon_alert {
           background: #f3bc00; }
-          div#flash_wrapper div#flash div.flash_message div#icon_status.icon_notice div#gloss, div#flash_wrapper div#flash div.flash_message div#icon_status.icon_alert div#gloss {
+          div#flash_wrapper div#flash div.flash_message div.icon_status.icon_notice div.gloss, div#flash_wrapper div#flash div.flash_message div.icon_status.icon_alert div.gloss {
             background: white;
             background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, rgba(255, 255, 255, 0)));
             background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, 0));
@@ -128,7 +135,7 @@ div#flash_wrapper {
             background: -ms-linear-gradient(top, white, rgba(255, 255, 255, 0));
             background: -o-linear-gradient(top, white, rgba(255, 255, 255, 0));
             background: linear-gradient(top, white, rgba(255, 255, 255, 0)); }
-        div#flash_wrapper div#flash div.flash_message div#icon_status div#gloss {
+        div#flash_wrapper div#flash div.flash_message div.icon_status div.gloss {
           background: transparent;
           -webkit-border-radius: 16px;
           -moz-border-radius: 16px;
@@ -145,7 +152,7 @@ div#flash_wrapper {
           position: relative;
           top: 1px;
           width: 16px; }
-      div#flash_wrapper div#flash div.flash_message div#flash_close {
+      div#flash_wrapper div#flash div.flash_message div.flash_close {
         background: rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(0, 0, 0, 0.2);
         -webkit-border-radius: 20px;
@@ -170,7 +177,7 @@ div#flash_wrapper {
         transition: all 0.15s ease-out;
         vertical-align: top;
         width: 20px; }
-        div#flash_wrapper div#flash div.flash_message div#flash_close span.close {
+        div#flash_wrapper div#flash div.flash_message div.flash_close span.close {
           color: rgba(255, 255, 255, 0.75);
           display: block;
           /* font-stack should degrade gracefully for X button */
@@ -179,10 +186,10 @@ div#flash_wrapper {
           font-weight: bold;
           line-height: 1em;
           text-align: center; }
-        div#flash_wrapper div#flash div.flash_message div#flash_close:hover {
+        div#flash_wrapper div#flash div.flash_message div.flash_close:hover {
           -webkit-transform: scale(1.2);
           -moz-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2); }
-      div#flash_wrapper div#flash div.flash_message:hover > div#flash_close {
+      div#flash_wrapper div#flash div.flash_message:hover > div.flash_close {
         opacity: 1.0; }
