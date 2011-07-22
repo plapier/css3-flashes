@@ -1,32 +1,31 @@
-//----------------------------------------------------------------
-// This Javascript is required for Flashes to animate in your app.
-//----------------------------------------------------------------
+(function($) {
+  $.fn.sexyFlash = function(settings) {
+    settings = $.extend({
+      delayTime: 3000,
+      boxShadowOffset: 2
+    }, settings);
 
-// Flash messages
-$(function(){
+    function stopAnimation() {
+      $(this).clearQueue();
+    }
+    function restartAnimation() {
+      $(this).delay(settings.delayTime).slideUp();
+    }
+    function closeFlash() {
+      $(this).clearQueue();
+      $(this).parents('.flash_message').slideUp();
+    }
 
-// EDIT HERE
-//----------------------------------------------------------------
-  var delayTime = 3000;       // Show Flash messages for 3 seconds
-  var boxShadowOffset = 2;    // CSS Box-Shadow Offset (pixels)
-//----------------------------------------------------------------
-// STOP EDITING HERE
+    return this.each(function() {
+      var flashHeight = $(this).innerHeight();
+      var closePos = "-" + (parseInt(flashHeight) + settings.boxShadowOffset) + "px";
 
-
-  // Grab height of Flash Message
-  var flashHeight = $('.flash_message').css("height");
-
-  // Calculate closed position of flash message
-  // Negate height, parse to integer, add CSS shadow height
-  var closePos = "-" + (parseInt(flashHeight) + boxShadowOffset) + "px";
-
-
-  // On Document load, slide down flashes then slide up after delay of 3 seconds
-  $('.flash_message').animate({ marginTop: 0 }).delay(delayTime).animate({ marginTop: closePos });
-
-  // Dissmiss Flash Messages
-  $('#flash_close').click(function(){
-    $('.flash_message').stop();                            //Stop Animation
-    $('.flash_message').animate({ marginTop: closePos }); // Slide up
-  });
-});
+      $('.flash_close', this).click(closeFlash);
+      $(this)
+        .hover(stopAnimation, restartAnimation)
+        .animate({ marginTop: 0 })
+        .delay(settings.delayTime)
+        .slideUp();
+    });
+  };
+})(jQuery);
