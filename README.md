@@ -3,7 +3,8 @@
 Use these CSS3 flashes in your rails app.
 DEMO: http://plapier.github.com/sexy-css3-flashes/
 
-These flashes solve the problem of flash messages being displayed inline, which tends to often break an application layout or page styling. Sexy-CSS3-Flashes are absolutely positioned so they float above page content, therefore page layouts remain intact and undisturbed.
+These flashes solve the problem of flash messages being displayed inline, which tends to often break an application layout or page styling. Sexy-CSS3-Flashes are absolutely positioned so they float above page content, therefore page layouts remain intact and undisturbed.  
+These flashes are also optimized for iphone/ipad use.
 
 ## Dependencies
 
@@ -71,6 +72,9 @@ If you desire more flexibility with styling Sexy-CSS3-Flashes, you can optionall
 *_custom-theme.scss*: Provided is a sass partial which contains the scss architecture to add your custom styles and css properties to. The commented styles are there to provide a basic starting point for styling the flashes.  
 Add all your custom styles here.
 
+## Animation Behavior
+
+The animation behavior can be changed within flashes.js. The default time to display the flashes is 3 seconds; on mobile it is extended 2 seconds longer — 5 seconds by default.
 
 ## About
 
