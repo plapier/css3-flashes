@@ -46,7 +46,7 @@
   background:         linear-gradient(top, $from, $to);
 }
 
-/* Legacy support for inline-block in IE7 (maybe IE6) */
+// Legacy support for inline-block in IE7 (maybe IE6)
 @mixin inline-block {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
