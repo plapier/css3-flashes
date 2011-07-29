@@ -6,6 +6,30 @@
   Requires Sass v3.1.1+ to compile (http://sass-lang.com/)
 ************************************************************************/
 /* Legacy support for inline-block in IE7 (maybe IE6) */
+div#flash_wrapper div#flash div.flash_message {
+  border-color: #282828;
+  -webkit-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+  -moz-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+  -o-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+  box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black; }
+  div#flash_wrapper div#flash div.flash_message div#flash-vrule {
+    background: #282828;
+    border-left: 1px solid #6f6f6f; }
+  div#flash_wrapper div#flash div.flash_message div#flash_icon {
+    -webkit-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
+    -moz-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
+    -o-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0; }
+  div#flash_wrapper div#flash div.flash_message div#icon_status {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none; }
+  div#flash_wrapper div#flash div.flash_message div#flash_close {
+    background: rgba(0, 0, 0, 0.2); }
+    div#flash_wrapper div#flash div.flash_message div#flash_close span.close {
+      color: rgba(255, 255, 255, 0.75); }
+
 /* Flash Message Styling for DARK CHROME or LIGHT CHROME Flashes
 ************************************************************************/
 div#flash_wrapper {
@@ -20,16 +44,11 @@ div#flash_wrapper {
     width: 960px;
     z-index: 100; }
     div#flash_wrapper div#flash div.flash_message {
-      border-color: darken #3c3c3c, 8%;
       border-style: none solid solid solid;
       border-width: 1px;
       -webkit-border-radius: 0 0 8px 8px;
       -moz-border-radius: 0 0 8px 8px;
       border-radius: 0 0 8px 8px;
-      -webkit-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
-      -moz-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
-      -o-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
-      box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -45,8 +64,6 @@ div#flash_wrapper {
       overflow: hidden;
       padding: 13px 15px; }
       div#flash_wrapper div#flash div.flash_message div#flash-vrule {
-        background: darken #3c3c3c, 8%;
-        border-left: 1px solid #6f6f6f;
         bottom: 15px;
         height: 50px;
         display: -moz-inline-box;
@@ -80,10 +97,6 @@ div#flash_wrapper {
         -moz-border-radius: 30px;
         border-radius: 30px;
         bottom: 4px;
-        -webkit-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
-        -moz-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
-        -o-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
-        box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
         height: 30px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
@@ -107,10 +120,6 @@ div#flash_wrapper {
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        -o-box-shadow: none;
-        box-shadow: none;
         height: 20px;
         margin: 5px auto 0;
         width: 20px; }
@@ -146,7 +155,6 @@ div#flash_wrapper {
           top: 1px;
           width: 16px; }
       div#flash_wrapper div#flash div.flash_message div#flash_close {
-        background: rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(0, 0, 0, 0.2);
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
@@ -171,7 +179,6 @@ div#flash_wrapper {
         vertical-align: top;
         width: 20px; }
         div#flash_wrapper div#flash div.flash_message div#flash_close span.close {
-          color: rgba(255, 255, 255, 0.75);
           display: block;
           /* font-stack should degrade gracefully for X button */
           font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;

@@ -1,0 +1,58 @@
+div#flash_wrapper {
+  div#flash {
+
+    div.flash_message {
+      @if $dark {
+        border-color: $shadow;
+        @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // if adjusted, see jQuery boxShadowOffset in application.js
+      } @else if $light {
+        border-color: $highlight;
+        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000);    // if adjusted, see jQuery boxShadowOffset in application.js
+      }
+
+      div#flash-vrule {
+        @if $dark {
+          background: $shadow;
+          border-left: 1px solid $highlight;
+        } @else if $light {
+          background: hsla(100%, 100%, 100%, 0.4);
+          border-left: 1px solid $chrome-to;
+        }
+      }
+
+      div#flash_icon {
+        @if $dark {
+          @include box-shadow(inset 0 1px 0 0 hsla(0%, 0%, 0%, 0.9), $highlight 0 1px 0 0);
+        } @else if $light {
+          @include box-shadow(inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
+        }
+      }
+
+      div#icon_status {
+        @if $dark {
+          @include box-shadow(none);
+        } @else if $light {
+          @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
+        }
+      }
+
+      div#flash_close {
+        @if $dark {
+          background: hsla(0%, 0%, 0%, 0.2);
+        } @else if $light {
+          background: hsla(0%, 0%, 0%, 0.1);
+        }
+
+        span.close {
+          @if $dark {
+            color: hsla(100%, 100%, 100%, 0.75);
+          } @else if $light {
+            color: hsla(0%, 0%, 0%, 0.4);
+          }
+        }
+      }
+
+    }
+
+  }
+}
