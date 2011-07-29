@@ -2,8 +2,8 @@
 
 @mixin border-radius ($radii) {
   -webkit-border-radius: $radii;
-  -moz-border-radius: $radii;
-  border-radius: $radii;
+     -moz-border-radius: $radii;
+          border-radius: $radii;
 }
 
 // Box-Shadow Mixin Requires Sass v3.1.1+
@@ -25,25 +25,25 @@
     }
   }
   -webkit-box-shadow: $full;
-  -moz-box-shadow: $full;
-  -o-box-shadow: $full;
-  box-shadow: $full;
+     -moz-box-shadow: $full;
+       -o-box-shadow: $full;
+          box-shadow: $full;
 }
 
 @mixin box-sizing ($box) {
   -webkit-box-sizing: $box;
-  -moz-box-sizing: $box;
-  box-sizing: $box;
+     -moz-box-sizing: $box;
+          box-sizing: $box;
 }
 
 @mixin linear-gradient ($from, $to) {
   background: $from;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to)); // Saf4+, Chrome
   background: -webkit-linear-gradient(top, $from, $to); // Chrome 10+, Saf5.1+
-  background: -moz-linear-gradient(top, $from, $to);    // FF3.6
-  background: -ms-linear-gradient(top, $from, $to);     // IE10
-  background: -o-linear-gradient(top, $from, $to);      // Opera 11.10+
-  background: linear-gradient(top, $from, $to);
+  background:    -moz-linear-gradient(top, $from, $to); // FF3.6
+  background:     -ms-linear-gradient(top, $from, $to); // IE10
+  background:      -o-linear-gradient(top, $from, $to); // Opera 11.10+
+  background:         linear-gradient(top, $from, $to);
 }
 
 /* Legacy support for inline-block in IE7 (maybe IE6) */
@@ -59,15 +59,15 @@
 
 @mixin transition($ratio: 0.15s) {
   -webkit-transition: all $ratio ease-out;
-  -moz-transition: all $ratio ease-out;
-  -ms-transition: all $ratio ease-out;
-  -o-transition: all $ratio ease-out;
-  transition: all $ratio ease-out;
+     -moz-transition: all $ratio ease-out;
+      -ms-transition: all $ratio ease-out;
+       -o-transition: all $ratio ease-out;
+          transition: all $ratio ease-out;
 }
 
 @mixin transform($property){
   -webkit-transform: $property;
-  -moz-transform: $property;
-  -ms-transform: $property;
-  transform: $property;
+     -moz-transform: $property;
+      -ms-transform: $property;
+          transform: $property;
 }
