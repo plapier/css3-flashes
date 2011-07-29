@@ -1,4 +1,4 @@
-// Styles specifically for dark or light flashStyles
+// Styles specifically for DARK STYLE and LIGHT STYLE flashes
 
 @if $light or $dark {
   div#flash_wrapper {
@@ -62,9 +62,7 @@
             }
           }
         }
-
       }
-
     }
   }
 }

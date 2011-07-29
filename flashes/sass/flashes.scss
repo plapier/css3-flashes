@@ -34,7 +34,7 @@ $custom-background-color: #ccc;
 
 
 
-// DO NOT EDIT - CALCULATE THE HEIGHT AND ADJUST ACCORDINGLY
+// DO NOT EDIT - CALCULATE HEIGHT AND COLOR VARIABLES
 //************************************************************************//
 
 $vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the padding of the flashes.
@@ -89,7 +89,7 @@ $custom: ($flashStyle == custom);
 
 
 //************************************************************************//
-/* Flash Message Styling for DARK STYLE or LIGHT STYLE Flashes
+/* Flash Message Structure and Styling
 ************************************************************************/
 
 div#flash_wrapper {
@@ -105,140 +105,138 @@ div#flash_wrapper {
     width: $flashWidth;
     z-index: 100;
 
-  }
-}
+    div.flash_message {
+      background: $background-color;
+      border-style: none solid solid solid;
+      border-width: 1px;
+      border-color: currentColor;
+      @include box-sizing(border-box);
+      height: $flashHeight;
+      margin: -$flashHeight 0 0;  // Negative margin
+      overflow: hidden;
+      padding: $vPadding 15px;
 
-// div#flash_wrapper > div#flash {
-div.flash_message {
-  background: $background-color;
-  border-style: none solid solid solid;
-  border-width: 1px;
-  border-color: currentColor;
-  @include box-sizing(border-box);
-  height: $flashHeight;
-  margin: -$flashHeight 0 0;  // Negative margin
-  overflow: hidden;
-  padding: $vPadding 15px;
+      // Vertical rule between status icon and display text
+      div#flash-vrule {
+        bottom: $vPadding + 2;
+        height: $flashHeight;
+        @include inline-block;
+        margin-right: 12px;
+        position: relative;
+        vertical-align: top;
+        width: 1px;
+      }
 
-  // Vertical rule between status icon and display text
-  div#flash-vrule {
-    bottom: $vPadding + 2;
-    height: $flashHeight;
-    @include inline-block;
-    margin-right: 12px;
-    position: relative;
-    vertical-align: top;
-    width: 1px;
-  }
+      // Display Text
+      p {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: $fontSize;
+        font-weight: bold;
+        @include inline-block;
+        line-height: $fontSize;
+        margin: 2px 0px;
+      }
 
-  // Display Text
-  p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: $fontSize;
-    font-weight: bold;
-    @include inline-block;
-    line-height: $fontSize;
-    margin: 2px 0px;
-  }
+      // Dark border around colored circle
+      div#flash_icon {
+        @include border-radius(30px);
+        bottom: 4px;
+        height: 30px;
+        @include inline-block;
+        @include linear-gradient(hsla(0%, 0%, 0%, 0.22), hsla(0%, 0%, 0%, 0.28));
+        margin-right: 12px;
+        position: relative;
+        vertical-align: top;
+        width: 30px;
+      }
 
-  // Dark border around colored circle
-  div#flash_icon {
-    @include border-radius(30px);
-    bottom: 4px;
-    height: 30px;
-    @include inline-block;
-    @include linear-gradient(hsla(0%, 0%, 0%, 0.22), hsla(0%, 0%, 0%, 0.28));
-    margin-right: 12px;
-    position: relative;
-    vertical-align: top;
-    width: 30px;
-  }
+      // Green, Red, Yellow circle
+      div#icon_status {
+        @include border-radius(20px);
+        height: 20px;
+        margin: 5px auto 0;
+        width: 20px;
 
-  // Green, Red, Yellow circle
-  div#icon_status {
-    @include border-radius(20px);
-    height: 20px;
-    margin: 5px auto 0;
-    width: 20px;
+        &.icon_success {
+          background: $green;
+        }
+        &.icon_failure {
+          background: $red;
+        }
+        &.icon_notice, &.icon_alert {
+          background: $yellow;
 
-    &.icon_success {
-      background: $green;
-    }
-    &.icon_failure {
-      background: $red;
-    }
-    &.icon_notice, &.icon_alert {
-      background: $yellow;
+          // This gloss gradient plays nicer with yellow
+          div#gloss {
+            @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
+          }
+        }
 
-      // This gloss gradient plays nicer with yellow
-      div#gloss {
-        @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
+        // Gloss on top of icon status color
+        div#gloss {
+          background: transparent;
+          @include border-radius(16px);
+          height: 16px;
+          @include linear-gradient(hsla(0%, 0%, 100%, 0.7), hsla(0%, 0%, 100%, 0));
+          margin: 0 auto;
+          position: relative;
+          top: 1px;
+          width: 16px;
+        }
+      }
+
+      // Close button
+      div#flash_close {
+        border: 1px solid hsla(0%, 0%, 0%, 0.2);
+        @include border-radius(20px);
+        cursor: pointer;
+        float: right;
+        height: 20px;
+        @include inline-block;
+        opacity: 0;
+        text-align: center;
+        @include transition;
+        vertical-align: top;
+        width: 20px;
+
+        // X inside button
+        span.close {
+          display: block;
+          /* font-stack should degrade gracefully for X button */
+          font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
+          font-size: 17px;
+          font-weight: bold;
+          line-height: 1em;
+          text-align: center;
+        }
+
+        &:hover {
+          @include transform(scale(1.2));
+        }
+      }
+
+      // hover over flash message to see close button. JS will slide flashes up regardless.
+      &:hover > div#flash_close {
+        opacity: 1.0;
       }
     }
 
-    // Gloss on top of icon status color
-    div#gloss {
-      background: transparent;
-      @include border-radius(16px);
-      height: 16px;
-      @include linear-gradient(hsla(0%, 0%, 100%, 0.7), hsla(0%, 0%, 100%, 0));
-      margin: 0 auto;
-      position: relative;
-      top: 1px;
-      width: 16px;
-    }
-  }
-
-  // Close button
-  div#flash_close {
-    border: 1px solid hsla(0%, 0%, 0%, 0.2);
-    @include border-radius(20px);
-    cursor: pointer;
-    float: right;
-    height: 20px;
-    @include inline-block;
-    opacity: 0;
-    text-align: center;
-    @include transition;
-    vertical-align: top;
-    width: 20px;
-
-    // X inside button
-    span.close {
-      display: block;
-      /* font-stack should degrade gracefully for X button */
-      font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
-      font-size: 17px;
-      font-weight: bold;
-      line-height: 1em;
-      text-align: center;
-    }
-
-    &:hover {
-      @include transform(scale(1.2));
-    }
-  }
-
-  // hover over flash message to see close button. JS will slide flashes up regardless.
-  &:hover > div#flash_close {
-    opacity: 1.0;
   }
 }
 
 /* iPad [portrait + landscape] */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   div#flash_close {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
 /* iPhone [portrait + landscape] */
 @media only screen and (max-device-width: 480px) {
   div#flash_close {
-    opacity: 1;
+    opacity: 0;
   }
 }
-
 
 // Import default (DARK & LIGHT STYLES) and custom theme to override any specificity issues
 @import "default-themes";

@@ -5,7 +5,7 @@
 
   Requires Sass v3.1.1+ to compile (http://sass-lang.com/)
 ************************************************************************/
-/* Flash Message Styling for DARK STYLE or LIGHT STYLE Flashes
+/* Flash Message Structure and Styling
 ************************************************************************/
 div#flash_wrapper {
   margin: 0 auto;
@@ -18,156 +18,155 @@ div#flash_wrapper {
     top: 0;
     width: 960px;
     z-index: 100; }
-
-div.flash_message {
-  background: transparent;
-  border-style: none solid solid solid;
-  border-width: 1px;
-  border-color: currentColor;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 50px;
-  margin: -50px 0 0;
-  overflow: hidden;
-  padding: 13px 15px; }
-  div.flash_message div#flash-vrule {
-    bottom: 15px;
-    height: 50px;
-    display: -moz-inline-box;
-    -moz-box-orient: vertical;
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
-    margin-right: 12px;
-    position: relative;
-    vertical-align: top;
-    width: 1px; }
-  div.flash_message p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    display: -moz-inline-box;
-    -moz-box-orient: vertical;
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
-    line-height: 15px;
-    margin: 2px 0px; }
-  div.flash_message div#flash_icon {
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    bottom: 4px;
-    height: 30px;
-    display: -moz-inline-box;
-    -moz-box-orient: vertical;
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
-    background: rgba(0, 0, 0, 0.22);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.22)), color-stop(1, rgba(0, 0, 0, 0.28)));
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
-    background: linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
-    margin-right: 12px;
-    position: relative;
-    vertical-align: top;
-    width: 30px; }
-  div.flash_message div#icon_status {
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    height: 20px;
-    margin: 5px auto 0;
-    width: 20px; }
-    div.flash_message div#icon_status.icon_success {
-      background: #009900; }
-    div.flash_message div#icon_status.icon_failure {
-      background: red; }
-    div.flash_message div#icon_status.icon_notice, div.flash_message div#icon_status.icon_alert {
-      background: #f3bc00; }
-      div.flash_message div#icon_status.icon_notice div#gloss, div.flash_message div#icon_status.icon_alert div#gloss {
-        background: white;
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, rgba(255, 255, 255, 0)));
-        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, 0));
-        background: -moz-linear-gradient(top, white, rgba(255, 255, 255, 0));
-        background: -ms-linear-gradient(top, white, rgba(255, 255, 255, 0));
-        background: -o-linear-gradient(top, white, rgba(255, 255, 255, 0));
-        background: linear-gradient(top, white, rgba(255, 255, 255, 0)); }
-    div.flash_message div#icon_status div#gloss {
+    div#flash_wrapper div#flash div.flash_message {
       background: transparent;
-      -webkit-border-radius: 16px;
-      -moz-border-radius: 16px;
-      border-radius: 16px;
-      height: 16px;
-      background: rgba(255, 255, 255, 0.7);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 255, 255, 0.7)), color-stop(1, rgba(255, 255, 255, 0)));
-      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-      background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-      background: -o-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-      background: linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-      margin: 0 auto;
-      position: relative;
-      top: 1px;
-      width: 16px; }
-  div.flash_message div#flash_close {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    float: right;
-    height: 20px;
-    display: -moz-inline-box;
-    -moz-box-orient: vertical;
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
-    opacity: 0;
-    text-align: center;
-    -webkit-transition: all 0.15s ease-out;
-    -moz-transition: all 0.15s ease-out;
-    -ms-transition: all 0.15s ease-out;
-    -o-transition: all 0.15s ease-out;
-    transition: all 0.15s ease-out;
-    vertical-align: top;
-    width: 20px; }
-    div.flash_message div#flash_close span.close {
-      display: block;
-      /* font-stack should degrade gracefully for X button */
-      font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
-      font-size: 17px;
-      font-weight: bold;
-      line-height: 1em;
-      text-align: center; }
-    div.flash_message div#flash_close:hover {
-      -webkit-transform: scale(1.2);
-      -moz-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-      transform: scale(1.2); }
-  div.flash_message:hover > div#flash_close {
-    opacity: 1.0; }
+      border-style: none solid solid solid;
+      border-width: 1px;
+      border-color: currentColor;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 50px;
+      margin: -50px 0 0;
+      overflow: hidden;
+      padding: 13px 15px; }
+      div#flash_wrapper div#flash div.flash_message div#flash-vrule {
+        bottom: 15px;
+        height: 50px;
+        display: -moz-inline-box;
+        -moz-box-orient: vertical;
+        display: inline-block;
+        vertical-align: baseline;
+        zoom: 1;
+        *display: inline;
+        *vertical-align: auto;
+        margin-right: 12px;
+        position: relative;
+        vertical-align: top;
+        width: 1px; }
+      div#flash_wrapper div#flash div.flash_message p {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        display: -moz-inline-box;
+        -moz-box-orient: vertical;
+        display: inline-block;
+        vertical-align: baseline;
+        zoom: 1;
+        *display: inline;
+        *vertical-align: auto;
+        line-height: 15px;
+        margin: 2px 0px; }
+      div#flash_wrapper div#flash div.flash_message div#flash_icon {
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        bottom: 4px;
+        height: 30px;
+        display: -moz-inline-box;
+        -moz-box-orient: vertical;
+        display: inline-block;
+        vertical-align: baseline;
+        zoom: 1;
+        *display: inline;
+        *vertical-align: auto;
+        background: rgba(0, 0, 0, 0.22);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.22)), color-stop(1, rgba(0, 0, 0, 0.28)));
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
+        background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
+        background: -o-linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
+        background: linear-gradient(top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.28));
+        margin-right: 12px;
+        position: relative;
+        vertical-align: top;
+        width: 30px; }
+      div#flash_wrapper div#flash div.flash_message div#icon_status {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        height: 20px;
+        margin: 5px auto 0;
+        width: 20px; }
+        div#flash_wrapper div#flash div.flash_message div#icon_status.icon_success {
+          background: #009900; }
+        div#flash_wrapper div#flash div.flash_message div#icon_status.icon_failure {
+          background: red; }
+        div#flash_wrapper div#flash div.flash_message div#icon_status.icon_notice, div#flash_wrapper div#flash div.flash_message div#icon_status.icon_alert {
+          background: #f3bc00; }
+          div#flash_wrapper div#flash div.flash_message div#icon_status.icon_notice div#gloss, div#flash_wrapper div#flash div.flash_message div#icon_status.icon_alert div#gloss {
+            background: white;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, rgba(255, 255, 255, 0)));
+            background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, 0));
+            background: -moz-linear-gradient(top, white, rgba(255, 255, 255, 0));
+            background: -ms-linear-gradient(top, white, rgba(255, 255, 255, 0));
+            background: -o-linear-gradient(top, white, rgba(255, 255, 255, 0));
+            background: linear-gradient(top, white, rgba(255, 255, 255, 0)); }
+        div#flash_wrapper div#flash div.flash_message div#icon_status div#gloss {
+          background: transparent;
+          -webkit-border-radius: 16px;
+          -moz-border-radius: 16px;
+          border-radius: 16px;
+          height: 16px;
+          background: rgba(255, 255, 255, 0.7);
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 255, 255, 0.7)), color-stop(1, rgba(255, 255, 255, 0)));
+          background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+          background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+          background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+          background: -o-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+          background: linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+          margin: 0 auto;
+          position: relative;
+          top: 1px;
+          width: 16px; }
+      div#flash_wrapper div#flash div.flash_message div#flash_close {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        float: right;
+        height: 20px;
+        display: -moz-inline-box;
+        -moz-box-orient: vertical;
+        display: inline-block;
+        vertical-align: baseline;
+        zoom: 1;
+        *display: inline;
+        *vertical-align: auto;
+        opacity: 0;
+        text-align: center;
+        -webkit-transition: all 0.15s ease-out;
+        -moz-transition: all 0.15s ease-out;
+        -ms-transition: all 0.15s ease-out;
+        -o-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out;
+        vertical-align: top;
+        width: 20px; }
+        div#flash_wrapper div#flash div.flash_message div#flash_close span.close {
+          display: block;
+          /* font-stack should degrade gracefully for X button */
+          font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
+          font-size: 17px;
+          font-weight: bold;
+          line-height: 1em;
+          text-align: center; }
+        div#flash_wrapper div#flash div.flash_message div#flash_close:hover {
+          -webkit-transform: scale(1.2);
+          -moz-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2); }
+      div#flash_wrapper div#flash div.flash_message:hover > div#flash_close {
+        opacity: 1.0; }
 
 /* iPad [portrait + landscape] */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   div#flash_close {
-    opacity: 1; } }
+    opacity: 0; } }
 /* iPhone [portrait + landscape] */
 @media only screen and (max-device-width: 480px) {
   div#flash_close {
-    opacity: 1; } }
+    opacity: 0; } }
 div#flash_wrapper div#flash div.flash_message {
   -webkit-border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
