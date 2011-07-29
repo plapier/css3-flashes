@@ -1,5 +1,5 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.8
+  Sexy CSS3 Flashes v2.0.0
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
@@ -89,7 +89,7 @@ $custom: ($flashStyle == custom);
 
 
 //************************************************************************//
-/* Flash Message Styling for DARK CHROME or LIGHT CHROME Flashes
+/* Flash Message Styling for DARK STYLE or LIGHT STYLE Flashes
 ************************************************************************/
 
 div#flash_wrapper {
@@ -131,7 +131,7 @@ div.flash_message {
     width: 1px;
   }
 
-  // DISPLAY TEXT
+  // Display Text
   p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: $fontSize;
@@ -141,7 +141,7 @@ div.flash_message {
     margin: 2px 0px;
   }
 
-  // DARK BORDER AROUND COLORED CIRCLE
+  // Dark border around colored circle
   div#flash_icon {
     @include border-radius(30px);
     bottom: 4px;
@@ -154,7 +154,7 @@ div.flash_message {
     width: 30px;
   }
 
-  // GREEN, RED, YELLOW CIRCLE
+  // Green, Red, Yellow circle
   div#icon_status {
     @include border-radius(20px);
     height: 20px;
@@ -239,5 +239,8 @@ div.flash_message {
   }
 }
 
+
+// Import default (DARK & LIGHT STYLES) and custom theme to override any specificity issues
 @import "default-themes";
+@import "custom-theme";
 

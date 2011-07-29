@@ -1,12 +1,11 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.8
+  Sexy CSS3 Flashes v2.0.0
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
   Requires Sass v3.1.1+ to compile (http://sass-lang.com/)
 ************************************************************************/
-/* Legacy support for inline-block in IE7 (maybe IE6) */
-/* Flash Message Styling for DARK CHROME or LIGHT CHROME Flashes
+/* Flash Message Styling for DARK STYLE or LIGHT STYLE Flashes
 ************************************************************************/
 div#flash_wrapper {
   margin: 0 auto;
