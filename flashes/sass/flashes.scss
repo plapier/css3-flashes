@@ -1,5 +1,5 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.8
+  Sexy CSS3 Flashes v2.0.0
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
@@ -12,20 +12,23 @@
 
 // EDIT HERE
 //************************************************************************//
-$chromeColor:   dark;    // Toggle 'dark' or 'light' !IMPORTANT
+$flashStyle:    dark;    // Toggle 'dark' or 'light', or 'custom' !IMPORTANT
 $flashHeight:   50px;    // Set Flash Message Height
 $flashWidth:   960px;    // Set Flash Message Width
 $flashSpacing:  10px;    // Set Flash Bottom Margin to separate multiple flashes
 $fontSize:      15px;    // Font Size (15px - 16px recommended)
 $flashOpacity:   0.9;
 
-// Set Dark Chrome Gradient (top -to- bottom)
-$dark-from:  #595959;
-$dark-to:    #3C3C3C;
+// Set DARK Background Gradient (top -to- bottom) | Dependent on $flashStyle
+$dark-background-from:  #595959;
+$dark-background-to:    #3C3C3C;
 
-// Set Light Chrome Gradient (top -to- bottom)
-$light-from: #F5F5F5;
-$light-to:   #959595;
+// Set LIGHT Background Gradient (top -to- bottom) | Dependent on $flashStyle
+$light-background-from: #F5F5F5;
+$light-background-to:   #959595;
+
+// Set CUSTOM Background color | Dependent on $flashStyle
+$custom-background-color: #ccc;
 
 //************************************************************************//
 // STOP EDITING HERE
@@ -33,50 +36,54 @@ $light-to:   #959595;
 
 
 
-// DO NOT EDIT - CALCULATE THE HEIGHT AND ADJUST ACCORDINGLY
+// DO NOT EDIT - CALCULATE HEIGHT AND COLOR VARIABLES
 //************************************************************************//
 
 $vPadding: floor( ((($flashHeight - $fontSize) / 2) - 4) ); // Calculate the padding of the flashes.
 
 // Initialize Variables
-$chrome-from:  0;
-$chrome-to:    0;
-$highlight:    0;
-$shadow:       0;
-$text-color:   0;
-$text-shadow:  0;
-$green:  #009900;
-$red:    #FF0000;
-$yellow: #F3BC00;
-$dark:  ($chromeColor == dark);
-$light: ($chromeColor == light);
+$background-color: transparent;
+$background-from:  0;
+$background-to:    0;
+$highlight:        0;
+$shadow:           0;
+$text-color:       0;
+$text-shadow:      0;
+$green:      #009900;                // Success status color
+$red:        #FF0000;                // Error status color
+$yellow:     #F3BC00;                // Warning status color
+$dark:   ($flashStyle == dark);
+$light:  ($flashStyle == light);
+$custom: ($flashStyle == custom);
 
+
+// Calculate shadows, highlights, colors, etc. for default themes
 @if $dark {
-  // DARK CHROME Gradient
-  $chrome-from: $dark-from;
-  $chrome-to:   $dark-to;
+  $background-from: $dark-background-from;
+  $background-to:   $dark-background-to;
 
-} @else if $light {
-  // LIGHT CHROME Gradient
-  $chrome-from: $light-from;
-  $chrome-to:   $light-to;
-}
-
-@if $dark {
-  // DARK CHROME color variables
-  $highlight:   lighten($chrome-to, 20%);
-  $shadow:      darken ($chrome-to,  8%);
+  // DARK color variables
+  $highlight:   lighten($background-to, 20%);
+  $shadow:      darken( $background-to,  8%);
   $text-color:  hsla(100%, 100%, 100%, 1.0);
   $text-shadow: hsla(  0%,   0%,   0%, 0.8);
 
 } @else if $light {
-  // LIGHT CHROME color variables
-  $highlight:   lighten($chrome-to, 15%);
-  $shadow:      darken ($chrome-to, 15%);
+  $background-from: $light-background-from;
+  $background-to:   $light-background-to;
+  // LIGHT color variables
+  $highlight:   lighten($background-to, 15%);
+  $shadow:      darken( $background-to, 15%);
   $text-color:  hsla(  0%,   0%,  13%, 1.0);
   $text-shadow: hsla(100%, 100%, 100%, 0.8);
   $red:         darken(#FF0000, 6%);
+
+} @else {
+  // No color calculations for custom themes
+  $background-color: $custom-background-color;
 }
+
+
 //************************************************************************//
 // END
 
@@ -84,8 +91,9 @@ $light: ($chromeColor == light);
 
 
 //************************************************************************//
-/* Flash Message Styling for DARK CHROME or LIGHT CHROME Flashes
+/* Flash Message Structure and Styling
 ************************************************************************/
+
 div#flash_wrapper {
   margin: 0 auto;  // Center flashes on screen
   width: $flashWidth;
@@ -98,43 +106,26 @@ div#flash_wrapper {
     top: 0;
     width: $flashWidth;
     z-index: 100;
+
+    // Opacity
     zoom: 1;
     filter: alpha(opacity=($flashOpacity * 100));
     opacity: $flashOpacity;
 
 
     div.flash_message {
-      @if $dark {
-        border-color: $shadow;
-      } @else if $light {
-        border-color: $highlight;
-      }
+      background: $background-color;
       border-style: none solid solid solid;
       border-width: 1px;
-      @include border-radius(8px);
-      &:first-child {
-        @include border-radius(0 0 8px 8px);
-      }
-      @if $dark {
-        @include box-shadow(inset 0 -1px 0 0 $highlight, 0 0 3px 0 #000); // if adjusted, see jQuery boxShadowOffset in application.js
-      } @else if $light {
-        @include box-shadow(inset 0 -1px 0 0 $shadow, 0 0 3px 0 #000);    // if adjusted, see jQuery boxShadowOffset in application.js
-      }
+      border-color: currentColor;
       @include box-sizing(border-box);
       height: $flashHeight;
-      @include linear-gradient($chrome-from, $chrome-to);
       margin: -$flashHeight 0 $flashSpacing;  // Negative margin
       overflow: hidden;
       padding: $vPadding 15px;
 
+      // Vertical rule between status icon and display text
       div.flash-vrule {
-        @if $dark {
-          background: $shadow;
-          border-left: 1px solid $highlight;
-        } @else if $light {
-          background: hsla(100%, 100%, 100%, 0.4);
-          border-left: 1px solid $chrome-to;
-        }
         bottom: $vPadding + 2;
         height: $flashHeight;
         @include inline-block;
@@ -143,24 +134,21 @@ div#flash_wrapper {
         vertical-align: top;
         width: 1px;
       }
+
+      // Display Text
       p {
-        color: $text-color;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: $fontSize;
         font-weight: bold;
         @include inline-block;
         line-height: $fontSize;
         margin: 2px 0px;
-        text-shadow: $text-shadow 1px 1px 1px;
       }
+
+      // Dark border around colored circle
       div.flash_icon {
         @include border-radius(30px);
         bottom: 4px;
-        @if $dark {
-          @include box-shadow(inset 0 1px 0 0 hsla(0%, 0%, 0%, 0.9), $highlight 0 1px 0 0);
-        } @else if $light {
-          @include box-shadow(inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
-        }
         height: 30px;
         @include inline-block;
         @include linear-gradient(hsla(0%, 0%, 0%, 0.22), hsla(0%, 0%, 0%, 0.28));
@@ -172,11 +160,6 @@ div#flash_wrapper {
 
       div.icon_status {
         @include border-radius(20px);
-        @if $dark {
-          @include box-shadow(none);
-        } @else if $light {
-          @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
-        }
         height: 20px;
         margin: 5px auto 0;
         width: 20px;
@@ -190,10 +173,13 @@ div#flash_wrapper {
         &.icon_notice, &.icon_alert {
           background: $yellow;
 
+          // This gloss gradient plays nicer with yellow
           div.gloss {
             @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
           }
         }
+
+        // Gloss on top of icon status color
         div.gloss {
           background: transparent;
           @include border-radius(16px);
@@ -205,12 +191,9 @@ div#flash_wrapper {
           width: 16px;
         }
       }
+
+      // Close button
       div.flash_close {
-        @if $dark {
-          background: hsla(0%, 0%, 0%, 0.2);
-        } @else if $light {
-          background: hsla(0%, 0%, 0%, 0.1);
-        }
         border: 1px solid hsla(0%, 0%, 0%, 0.2);
         @include border-radius(20px);
         cursor: pointer;
@@ -223,12 +206,8 @@ div#flash_wrapper {
         vertical-align: top;
         width: 20px;
 
+        // X inside button
         span.close {
-          @if $dark {
-            color: hsla(100%, 100%, 100%, 0.75);
-          } @else if $light {
-            color: hsla(0%, 0%, 0%, 0.4);
-          }
           display: block;
           /* font-stack should degrade gracefully for X button */
           font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
@@ -237,14 +216,35 @@ div#flash_wrapper {
           line-height: 1em;
           text-align: center;
         }
+
         &:hover {
           @include transform(scale(1.2));
         }
       }
+
       // hover over flash message to see close button. JS will slide flashes up regardless.
       &:hover > div.flash_close {
         opacity: 1.0;
       }
     }
+
   }
 }
+
+/* iPad [portrait + landscape] */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  div.flash_close {
+    opacity: 0;
+  }
+}
+
+/* iPhone [portrait + landscape] */
+@media only screen and (max-device-width: 480px) {
+  div.flash_close {
+    opacity: 0;
+  }
+}
+
+// Import default (DARK & LIGHT STYLES) and custom theme to override any specificity issues
+@import "default-themes";
+@import "custom-theme";

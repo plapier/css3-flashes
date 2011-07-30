@@ -1,0 +1,62 @@
+// Framework for Custom Theme - Provides greater flexibility for styling flashes
+// Put your custom styles here and define $flashStyle: custom; in flashes.scss
+// Below are some example properties to get started
+
+@if $custom {
+
+  div#flash_wrapper {
+    div#flash {
+
+      div.flash_message {
+        // @include border-radius(0 0 8px 8px);
+        // border-color: gray;
+        // @include linear-gradient($color-from, $color-to);
+
+        // Vertical rule between status icon and display text
+        div.flash-vrule {
+          // background: hsla(100%, 100%, 100%, 0.4);
+          // border-left: 1px solid gray;
+        }
+
+        p {
+        }
+
+        // Dark circle background
+        div.flash_icon {
+          // @include box-shadow(inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
+        }
+
+        // Colored status circle
+        div.icon_status {
+          // @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
+
+          &.icon_success {
+          }
+          &.icon_failure {
+          }
+          &.icon_notice, &.icon_alert {
+          }
+
+          div.gloss {
+          }
+        }
+
+        // Close Button Circle
+        div.flash_close {
+          // background: hsla(0%, 0%, 0%, 0.1);
+
+          // Close Button X
+          span.close {
+            // color: hsla(0%, 0%, 0%, 0.4);
+          }
+
+          &:hover {
+          }
+        }
+
+        &:hover > div.flash_close {
+        }
+      }
+    }
+  }
+}

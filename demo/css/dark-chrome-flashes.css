@@ -1,12 +1,11 @@
 /************************************************************************
-  Sexy CSS3 Flashes v1.2.8
+  Sexy CSS3 Flashes v2.0.0
   Copyright 2010, Phil LaPier
   https://github.com/plapier/sexy-css3-flashes
 
   Requires Sass v3.1.1+ to compile (http://sass-lang.com/)
 ************************************************************************/
-/* Legacy support for inline-block in IE7 (maybe IE6) */
-/* Flash Message Styling for DARK CHROME or LIGHT CHROME Flashes
+/* Flash Message Structure and Styling
 ************************************************************************/
 div#flash_wrapper {
   margin: 0 auto;
@@ -23,37 +22,18 @@ div#flash_wrapper {
     filter: alpha(opacity=90);
     opacity: 0.9; }
     div#flash_wrapper div#flash div.flash_message {
-      border-color: darken #3c3c3c, 8%;
+      background: transparent;
       border-style: none solid solid solid;
       border-width: 1px;
-      -webkit-border-radius: 8px;
-      -moz-border-radius: 8px;
-      border-radius: 8px;
-      -webkit-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
-      -moz-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
-      -o-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
-      box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+      border-color: currentColor;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       height: 50px;
-      background: #595959;
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #595959), color-stop(1, #3c3c3c));
-      background: -webkit-linear-gradient(top, #595959, #3c3c3c);
-      background: -moz-linear-gradient(top, #595959, #3c3c3c);
-      background: -ms-linear-gradient(top, #595959, #3c3c3c);
-      background: -o-linear-gradient(top, #595959, #3c3c3c);
-      background: linear-gradient(top, #595959, #3c3c3c);
       margin: -50px 0 10px;
       overflow: hidden;
       padding: 13px 15px; }
-      div#flash_wrapper div#flash div.flash_message:first-child {
-        -webkit-border-radius: 0 0 8px 8px;
-        -moz-border-radius: 0 0 8px 8px;
-        border-radius: 0 0 8px 8px; }
       div#flash_wrapper div#flash div.flash_message div.flash-vrule {
-        background: darken #3c3c3c, 8%;
-        border-left: 1px solid #6f6f6f;
         bottom: 15px;
         height: 50px;
         display: -moz-inline-box;
@@ -68,7 +48,6 @@ div#flash_wrapper {
         vertical-align: top;
         width: 1px; }
       div#flash_wrapper div#flash div.flash_message p {
-        color: white;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 15px;
         font-weight: bold;
@@ -80,17 +59,12 @@ div#flash_wrapper {
         *display: inline;
         *vertical-align: auto;
         line-height: 15px;
-        margin: 2px 0px;
-        text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px; }
+        margin: 2px 0px; }
       div#flash_wrapper div#flash div.flash_message div.flash_icon {
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
         border-radius: 30px;
         bottom: 4px;
-        -webkit-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
-        -moz-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
-        -o-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
-        box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
         height: 30px;
         display: -moz-inline-box;
         -moz-box-orient: vertical;
@@ -114,10 +88,6 @@ div#flash_wrapper {
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        -o-box-shadow: none;
-        box-shadow: none;
         height: 20px;
         margin: 5px auto 0;
         width: 20px; }
@@ -153,7 +123,6 @@ div#flash_wrapper {
           top: 1px;
           width: 16px; }
       div#flash_wrapper div#flash div.flash_message div.flash_close {
-        background: rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(0, 0, 0, 0.2);
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
@@ -178,7 +147,6 @@ div#flash_wrapper {
         vertical-align: top;
         width: 20px; }
         div#flash_wrapper div#flash div.flash_message div.flash_close span.close {
-          color: rgba(255, 255, 255, 0.75);
           display: block;
           /* font-stack should degrade gracefully for X button */
           font-family: Helvetica, 'lucida grande', Tahoma, Arial, sans-serif;
@@ -193,3 +161,52 @@ div#flash_wrapper {
           transform: scale(1.2); }
       div#flash_wrapper div#flash div.flash_message:hover > div.flash_close {
         opacity: 1.0; }
+
+/* iPad [portrait + landscape] */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  div#flash_close {
+    opacity: 0; } }
+/* iPhone [portrait + landscape] */
+@media only screen and (max-device-width: 480px) {
+  div#flash_close {
+    opacity: 0; } }
+div#flash_wrapper div#flash div.flash_message {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background: #595959;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #595959), color-stop(1, #3c3c3c));
+  background: -webkit-linear-gradient(top, #595959, #3c3c3c);
+  background: -moz-linear-gradient(top, #595959, #3c3c3c);
+  background: -ms-linear-gradient(top, #595959, #3c3c3c);
+  background: -o-linear-gradient(top, #595959, #3c3c3c);
+  background: linear-gradient(top, #595959, #3c3c3c);
+  border-color: #282828;
+  -webkit-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+  -moz-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+  -o-box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black;
+  box-shadow: inset 0 -1px 0 0 #6f6f6f, 0 0 3px 0 black; }
+  div#flash_wrapper div#flash div.flash_message:first-child {
+    -webkit-border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px; }
+  div#flash_wrapper div#flash div.flash_message div.flash-vrule {
+    background: #282828;
+    border-left: 1px solid #6f6f6f; }
+  div#flash_wrapper div#flash div.flash_message p {
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px; }
+  div#flash_wrapper div#flash div.flash_message div.flash_icon {
+    -webkit-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
+    -moz-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
+    -o-box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0;
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.9), #6f6f6f 0 1px 0 0; }
+  div#flash_wrapper div#flash div.flash_message div.icon_status {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none; }
+  div#flash_wrapper div#flash div.flash_message div.flash_close {
+    background: rgba(0, 0, 0, 0.2); }
+    div#flash_wrapper div#flash div.flash_message div.flash_close span.close {
+      color: rgba(255, 255, 255, 0.75); }
