@@ -13,7 +13,7 @@
         // @include linear-gradient($color-from, $color-to);
 
         // Vertical rule between status icon and display text
-        div#flash-vrule {
+        div.flash-vrule {
           // background: hsla(100%, 100%, 100%, 0.4);
           // border-left: 1px solid gray;
         }
@@ -22,12 +22,12 @@
         }
 
         // Dark circle background
-        div#flash_icon {
+        div.flash_icon {
           // @include box-shadow(inset 0 1px 0 0 hsla(0, 0, 0, 0.3), 0 -1px 0 0 hsla(100%, 100%, 100%, 0.65));
         }
 
         // Colored status circle
-        div#icon_status {
+        div.icon_status {
           // @include box-shadow(0 1px 2px 0px hsla(0, 0, 0, 0.7));
 
           &.icon_success {
@@ -37,12 +37,12 @@
           &.icon_notice, &.icon_alert {
           }
 
-          div#gloss {
+          div.gloss {
           }
         }
 
         // Close Button Circle
-        div#flash_close {
+        div.flash_close {
           // background: hsla(0%, 0%, 0%, 0.1);
 
           // Close Button X
@@ -54,7 +54,7 @@
           }
         }
 
-        &:hover > div#flash_close {
+        &:hover > div.flash_close {
         }
       }
     }

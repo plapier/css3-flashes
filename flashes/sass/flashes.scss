@@ -15,7 +15,9 @@
 $flashStyle:    dark;    // Toggle 'dark' or 'light', or 'custom' !IMPORTANT
 $flashHeight:   50px;    // Set Flash Message Height
 $flashWidth:   960px;    // Set Flash Message Width
+$flashSpacing:  10px;    // Set Flash Bottom Margin to separate multiple flashes
 $fontSize:      15px;    // Font Size (15px - 16px recommended)
+$flashOpacity:   0.9;
 
 // Set DARK Background Gradient (top -to- bottom) | Dependent on $flashStyle
 $dark-background-from:  #595959;
@@ -105,6 +107,12 @@ div#flash_wrapper {
     width: $flashWidth;
     z-index: 100;
 
+    // Opacity
+    zoom: 1;
+    filter: alpha(opacity=($flashOpacity * 100));
+    opacity: $flashOpacity;
+
+
     div.flash_message {
       background: $background-color;
       border-style: none solid solid solid;
@@ -112,12 +120,12 @@ div#flash_wrapper {
       border-color: currentColor;
       @include box-sizing(border-box);
       height: $flashHeight;
-      margin: -$flashHeight 0 0;  // Negative margin
+      margin: -$flashHeight 0 $flashSpacing;  // Negative margin
       overflow: hidden;
       padding: $vPadding 15px;
 
       // Vertical rule between status icon and display text
-      div#flash-vrule {
+      div.flash-vrule {
         bottom: $vPadding + 2;
         height: $flashHeight;
         @include inline-block;
@@ -138,7 +146,7 @@ div#flash_wrapper {
       }
 
       // Dark border around colored circle
-      div#flash_icon {
+      div.flash_icon {
         @include border-radius(30px);
         bottom: 4px;
         height: 30px;
@@ -150,8 +158,7 @@ div#flash_wrapper {
         width: 30px;
       }
 
-      // Green, Red, Yellow circle
-      div#icon_status {
+      div.icon_status {
         @include border-radius(20px);
         height: 20px;
         margin: 5px auto 0;
@@ -160,20 +167,20 @@ div#flash_wrapper {
         &.icon_success {
           background: $green;
         }
-        &.icon_failure {
+        &.icon_failure, &.icon_error {
           background: $red;
         }
         &.icon_notice, &.icon_alert {
           background: $yellow;
 
           // This gloss gradient plays nicer with yellow
-          div#gloss {
+          div.gloss {
             @include linear-gradient(hsla(0%, 0%, 100%, 1), hsla(0%, 0%, 100%, 0));
           }
         }
 
         // Gloss on top of icon status color
-        div#gloss {
+        div.gloss {
           background: transparent;
           @include border-radius(16px);
           height: 16px;
@@ -186,7 +193,7 @@ div#flash_wrapper {
       }
 
       // Close button
-      div#flash_close {
+      div.flash_close {
         border: 1px solid hsla(0%, 0%, 0%, 0.2);
         @include border-radius(20px);
         cursor: pointer;
@@ -216,7 +223,7 @@ div#flash_wrapper {
       }
 
       // hover over flash message to see close button. JS will slide flashes up regardless.
-      &:hover > div#flash_close {
+      &:hover > div.flash_close {
         opacity: 1.0;
       }
     }
@@ -226,14 +233,14 @@ div#flash_wrapper {
 
 /* iPad [portrait + landscape] */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  div#flash_close {
+  div.flash_close {
     opacity: 0;
   }
 }
 
 /* iPhone [portrait + landscape] */
 @media only screen and (max-device-width: 480px) {
-  div#flash_close {
+  div.flash_close {
     opacity: 0;
   }
 }
@@ -241,4 +248,3 @@ div#flash_wrapper {
 // Import default (DARK & LIGHT STYLES) and custom theme to override any specificity issues
 @import "default-themes";
 @import "custom-theme";
-

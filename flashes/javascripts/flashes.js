@@ -1,48 +1,47 @@
-//----------------------------------------------------------------
-// This Javascript is required for Flashes to animate in your app.
-//----------------------------------------------------------------
+(function($) {
+  $.fn.sexyFlash = function(settings) {
+    settings = $.extend({
+      delayTime: 3000,
+      boxShadowOffset: 2
+    }, settings);
 
-// Flash messages
-$(function(){
+    function calculateDelayTime(delay) {
+      if ( isiOSDevice() ) {
+        return delay + 2000;
+      }
+      return delay;
+    }
+    function isiOSDevice() {
+      var deviceAgent = navigator.userAgent.toLowerCase(),
+          iOSDevice   = deviceAgent.match(/(iphone|ipod|ipad)/);
 
-// EDIT HERE
-//----------------------------------------------------------------
-  var delayTime = 3000;       // Show Flash messages for 3 seconds
-  var boxShadowOffset = 2;    // CSS Box-Shadow y-Offset (pixels)
-//----------------------------------------------------------------
-// STOP EDITING HERE
+      if (iOSDevice) {
+        return true;
+      }
+      return false;
+    }
+    function stopAnimation() {
+      $(this).clearQueue();
+    }
+    function restartAnimation() {
+      $(this).delay(settings.delayTime).slideUp();
+    }
+    function closeFlash() {
+      $(this).clearQueue();
+      $(this).parents('.flash_message').slideUp();
+    }
 
+    settings.delayTime = calculateDelayTime(settings.delayTime);
+    return this.each(function() {
+      var flashHeight = $(this).innerHeight(),
+          closePos    = "-" + (parseInt(flashHeight) + settings.boxShadowOffset) + "px";
 
-  // Grab height of Flash Message
-  var flashHeight = $('div.flash_message').css("max-height"); // Grab height of Flash Message
-
-  // Calculate closed position of flash message
-  // Negate height, parse to integer, add CSS shadow-height
-  var closePos = "-" + (parseInt(flashHeight) + boxShadowOffset) + "px";
-
-  // Detect browser UserAgent
-  var deviceAgent = navigator.userAgent.toLowerCase();
-
-  // Detect if iphone, ipad, ipod
-  var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
-
-  if (agentID) {
-    $(function(){
-      // If mobile platform, slide down flash message, delay for 2 seconds longer than desktop
-      $('.flash_message').animate({ marginTop: 0 }).delay(delayTime + 2000).animate({ marginTop: closePos });
-    });
-
-  } else {
-    // Non-mobile devices
-    $(function(){
-      // On Document load, slide down flashes then slide up after delay of 3 seconds
-      $('.flash_message').animate({ marginTop: 0 }).delay(delayTime).animate({ marginTop: closePos });
+      $('.flash_close', this).click(closeFlash);
+      $(this)
+        .hover(stopAnimation, restartAnimation)
+        .animate({ marginTop: 0 })
+        .delay(settings.delayTime)
+        .slideUp(function() { $(this).remove(); });
     });
   };
-
-  // Dissmiss Flash Messages
-  $('#flash_close').click(function(){
-    $('.flash_message').stop();                               // Stop Animation
-    $('.flash_message').animate({ marginTop: closePos });     // Slide up
-  });
-});
+})(jQuery);
