@@ -14,7 +14,7 @@ $(function(){
 
 
   // Grab height of Flash Message
-  var flashHeight = $('div.flash_message').css("max-height"); // Grab height of Flash Message
+  var flashHeight = $('div.flash_message').innerHeight(); // Grab height of Flash Message
 
   // Calculate closed position of flash message
   // Negate height, parse to integer, add CSS shadow-height
