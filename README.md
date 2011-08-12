@@ -12,6 +12,7 @@ You'll need:
 
 * jQuery
 * Sass 3.1.1+
+* [Bourbon](https://github.com/thoughtbot/bourbon)
 
 
 ## Install
