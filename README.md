@@ -20,10 +20,14 @@ You'll need:
 Everything in flashes directory, place respectively in your rails app:
 
 * _flashes.html.erb partial into app/views/shared/
-* sass files into public/stylesheets/sass/
+* sexy-css3-flashes folder into public/stylesheets/sass/
 * flashes.js into public/javascripts/ and include it in your javascripts tag.
 
-Add the flashes partial to your layouts:
+Import the _flashes.scss partial into your application.scss
+
+    @import "sexy-css3-flashes/flashes";
+
+Add the _flashes.html.erb partial to your layouts:
 
     <%= render :partial => 'shared/flashes' -%>
 
@@ -31,7 +35,7 @@ Add the flashes partial to your layouts:
 ## Styles / Themes
 
 There are two default themes provided: DARK & LIGHT.  
-Alternatively, a CUSTOM theme can be defined in _custom-theme.scss. See CUSTOM Theme below.
+Alternatively, a CUSTOM theme can be styled in _custom-theme.scss. See CUSTOM Theme below.
 
 
 ### DARK or LIGHT Theme
@@ -75,9 +79,9 @@ Add all your custom styles here.
 
 ## Animation Behavior
 
-The animation behavior can be changed within flashes.js. The default time to display the flashes is 3 seconds; on mobile it is extended 2 seconds longer — 5 seconds by default.
+The animation behavior can be changed within flashes.js. The default time to display the flashes is 3 seconds; on mobile it is extended 2 seconds longer — 5 seconds by default. The time can be adjusted in javascripts/flashes.js.
 
 ## About
 
-These CSS3 flashes were created on the grounds of providing better functionality and visual appeal. They look best in WebKit-based browsers and Firefox, with all other browsers degrading rather gracefully. If you use these flashes in the wild, drop me a note and let me know. http://twitter.com/phillapier
+These CSS3 flashes were created on the grounds of providing better functionality and visual appeal. They look best in WebKit-based browsers and Firefox, with all other browsers degrading rather gracefully. If you use these flashes in your app, drop me a note and let me know. http://twitter.com/phillapier
 
