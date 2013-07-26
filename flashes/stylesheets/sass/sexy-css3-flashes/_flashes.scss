@@ -102,7 +102,7 @@ div#flash_wrapper {
     position: absolute;
     top: 0;
     width: $flashWidth;
-    z-index: 100;
+    z-index: 9999;
 
     div.flash_message {
       background: $background-color;
@@ -113,6 +113,7 @@ div#flash_wrapper {
       height: $flashHeight;
       margin: -$flashHeight 0 0;  // Negative margin
       overflow: hidden;
+      text-align: left;
       padding: $vPadding 15px;
 
       // Vertical rule between status icon and display text
