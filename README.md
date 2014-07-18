@@ -1,9 +1,9 @@
-# Sexy CSS3 Flashes
+# CSS3 Flashes
 
 Use these CSS3 flashes in your rails app.
-DEMO: http://plapier.github.com/sexy-css3-flashes/
+DEMO: http://plapier.github.com/css3-flashes/
 
-These flashes solve the problem of flash messages being displayed inline, which tends to often break an application layout or page styling. Sexy-CSS3-Flashes are absolutely positioned so they float above page content, therefore page layouts remain intact and undisturbed.  
+These flashes solve the problem of flash messages being displayed inline, which tends to often break an application layout or page styling. CSS3-Flashes are absolutely positioned so they float above page content, therefore page layouts remain intact and undisturbed.  
 These flashes are also optimized for iphone/ipad use.
 
 ## Dependencies
@@ -20,12 +20,12 @@ You'll need:
 Everything in flashes directory, place respectively in your rails app:
 
 * _flashes.html.erb partial into app/views/shared/
-* sexy-css3-flashes folder into public/stylesheets/sass/
+* css3-flashes folder into public/stylesheets/sass/
 * flashes.js into public/javascripts/ and include it in your javascripts tag.
 
 Import the _flashes.scss partial into your application.scss
 
-    @import "sexy-css3-flashes/flashes";
+    @import "css3-flashes/flashes";
 
 Add the _flashes.html.erb partial to your layouts:
 
